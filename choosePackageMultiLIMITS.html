@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exxaa Packages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="./images/navbar/exxaa marketmdpi.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .logo {
+        
+            font-weight: bold;
+            color: #3a77ff;
+        }
+
+        .help {
+            color: #002f34;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+        }
+
+        .package-container {
+            padding: 20px;
+        }
+
+        .discount-banner {
+            background-color: #fff6e5;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .discount-icon {
+            background-color: #ffce32;
+            color: #002f34;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .package-section {
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #002f34;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            color: #002f34;
+            margin-bottom: 5px;
+        }
+
+        p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .package-options {
+            display: flex;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+
+        .package-option {
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 10px;
+            margin-right: 10px;
+            min-width: 150px;
+            cursor: pointer;
+        }
+
+        .package-option.selected {
+            border-color: #0077ff;
+            background-color: #e6f3ff;
+        }
+
+        .package-option input[type="radio"] {
+            display: none;
+        }
+
+        .package-option label {
+            display: block;
+            cursor: pointer;
+        }
+
+        .price {
+            margin-top: 10px;
+        }
+
+        .discount {
+            background-color: #ffce32;
+            padding: 2px 5px;
+            border-radius: 2px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+
+        .current-price {
+            font-weight: bold;
+            color: #002f34;
+            display: block;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 12px;
+        }
+
+        .help-section {
+            background-color: #f2f4f5;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .icon {
+            margin-right: 5px;
+        }
+        .cart-section {
+    display: none; /* Hide by default */
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #002f34;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    width: 400px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.12);
+}
+
+
+        .cart-details {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-details span {
+            margin-right: 10px;
+        }
+
+        .cart-details .item-count {
+            font-weight: bold;
+        }
+
+        .view-cart {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-cart:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 400px) {
+    .package-option {
+        min-width: 100px;
+        padding: 5px;
+    }
+
+    .view-cart {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 320px) {
+    .package-option {
+        min-width: 80px;
+    }
+
+    .view-cart {
+        padding: 5px 10px;
+    }
+}
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <div class="logo">exxaa</div>
+        <div class="help">Help</div>
+    </header>
+
+    <div id="bussines-pkg-nav" class="navbar">
+        <a href="index.html" class="toggle-nav"><i class="fas fa-arrow-left"></i></a>
+    </div>
+    <main>
+        <div class="package-container">
+            <div class="discount-banner">
+                <div class="discount-icon">%</div>
+                <h2>Heavy discount on Packages</h2>
+            </div>
+
+            <section class="package-section">
+                <h3>POST MORE ADS AND AUTO BOOST</h3>
+                <p>Post more ads and ads get boosted to the top every few days</p>
+                <p>Package available for 30 days</p>
+
+                <h4>Post Ads & Auto boost every 7 days</h4>
+                <p>Reach up to 4 times more buyers</p>
+
+                <div class="package-options">
+                    <div class="package-option">
+                        <input type="radio" id="50ads" name="package">
+                        <label for="50ads">50 Ads</label>
+                        <div class="price">
+                            <span class="discount">-14%</span>
+                            <span class="current-price">₹ 14,750</span>
+                            <span class="original-price">₹ 17,110</span>
+                        </div>
+                    </div>
+                    <div class="package-option" id="packageid1">
+                        <input type="radio" id="5ads" name="package">
+                        <label for="5ads">5 Ads</label>
+                        <div class="price">
+                            <span class="discount">-12%</span>
+                            <span class="current-price">₹ 7,500</span>
+                            <span class="original-price">₹ 8,490</span>
+                        </div>
+                    </div>
+                    <div class="package-option">
+                        <input type="radio" id="3ads" name="package">
+                        <label for="3ads">3 Ads</label>
+                        <div class="price">
+                            <span class="discount">-5%</span>
+                            <span class="current-price">₹ 5,000</span>
+                            <span class="original-price">₹ 5,310</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="package-section">
+                <h3>POST MORE ADS</h3>
+                <p>Package available for 360 days</p>
+
+                <h4>Post more ads</h4>
+                <p>Post 600 Car Ads on OLX</p>
+            </section>
+
+            <section class="package-section">
+                <h3>POST MORE ADS</h3>
+                <p>Package available for 90 days</p>
+
+                <h4>Post more ads</h4>
+                <p>Post 150 Car Ads on OLX</p>
+
+                <div class="package-options">
+                    <div class="package-option">
+                        <input type="radio" id="50ads-30days" name="package">
+                        <label for="50ads-30days">50 Ads</label>
+                        <div class="price">
+                            <span class="discount">-20%</span>
+                            <span class="current-price">₹ 9,440</span>
+                            <span class="original-price">₹ 11,800</span>
+                        </div>
+                    </div>
+                    <div class="package-option">
+                        <input type="radio" id="5ads-30days" name="package">
+                        <label for="5ads-30days">5 Ads</label>
+                        <div class="price">
+                            <span class="discount">-5%</span>
+                            <span class="current-price">₹ 5,600</span>
+                            <span class="original-price">₹ 5,900</span>
+                        </div>
+                    </div>
+                    <div class="package-option">
+                        <input type="radio" id="3ads-30days" name="package">
+                        <label for="3ads-30days">3 Ads</label>
+                        <div class="price">
+                            <span class="discount">-9%</span>
+                            <span class="current-price">₹ 3,540</span>
+                            <span class="original-price">₹ 3,899</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <section class="package-section">
+                <h3>POST MORE ADS</h3>
+                <p>Package available for 30 days</p>
+
+                <h4>Post more ads</h4>
+                <p>Post 50 Ads</p>
+
+                <div class="package-options">
+                    <div class="package-option">
+                        <input type="radio" id="50ads-30days" name="package">
+                        <label for="50ads-30days">50 Ads</label>
+                        <div class="price">
+                            <span class="discount">-20%</span>
+                            <span class="current-price">₹ 9,440</span>
+                            <span class="original-price">₹ 11,800</span>
+                        </div>
+                    </div>
+                    <div class="package-option">
+                        <input type="radio" id="5ads-30days" name="package">
+                        <label for="5ads-30days">5 Ads</label>
+                        <div class="price">
+                            <span class="discount">-5%</span>
+                            <span class="current-price">₹ 5,600</span>
+                            <span class="original-price">₹ 5,900</span>
+                        </div>
+                    </div>
+                    <div class="package-option">
+                        <input type="radio" id="3ads-30days" name="package">
+                        <label for="3ads-30days">3 Ads</label>
+                        <div class="price">
+                            <span class="discount">-9%</span>
+                            <span class="current-price">₹ 3,540</span>
+                            <span class="original-price">₹ 3,899</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="help-section">
+                <h3>Need help?</h3>
+                <p><span class="icon">📞</span> Call us on - 1860-258-3333</p>
+                <p><span class="icon">✉️</span> Email on - support@olx.in</p>
+            </section>
+        </div>
+    </main>
+
+
+
+    <div class="cart-section">
+        <div class="cart-details">
+            <span class="item-count">2 items</span>
+            <span class="total-amount">Total: ₹ 21,500</span>
+        </div>
+        <a href="cart.html" class="view-cart">View Cart</a>
+    </div>
+    <script>
+        // Function to update cart details and visibility
+        function updateCart(selectedOption) {
+            // Remove 'selected' class from all options
+            document.querySelectorAll('.package-option').forEach(opt => {
+                opt.classList.remove('selected');
+                opt.querySelector('input[type="radio"]').checked = false; // Uncheck all radio buttons
+            });
+    
+            // Add 'selected' class to the current option
+            selectedOption.classList.add('selected');
+            selectedOption.querySelector('input[type="radio"]').checked = true; // Check the selected radio button
+    
+            // Update the cart details
+            const itemCount = document.querySelector('.item-count');
+            const totalAmount = document.querySelector('.total-amount');
+            
+            itemCount.textContent = '1 item';
+            totalAmount.textContent = 'Total: ₹ ' + selectedOption.querySelector('.current-price').textContent.replace('₹ ', '');
+    
+            // Show the cart section
+            document.querySelector('.cart-section').style.display = 'flex'; // Display the cart section
+        }
+    
+        // Attach event listeners to the package options
+        document.querySelectorAll('.package-option').forEach(option => {
+            option.addEventListener('click', function() {
+                updateCart(this);
+            });
+        });
+    
+        // Hide cart section initially
+        document.querySelector('.cart-section').style.display = 'none';
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Cart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.cart h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.cart-item-header {
+    margin-bottom: 20px;
+}
+
+.cart-item-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.cart-item-header p {
+    color: #777;
+    margin: 5px 0 15px;
+}
+
+.price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+}
+
+.quantity button {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+}
+
+.quantity input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+    margin: 0 5px;
+    background-color: #f5f5f5;
+}
+
+.price-details {
+    margin-top: 20px;
+}
+
+.price-details h4 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.pay-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #004d40;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.pay-button:hover {
+    background-color: #00332a;
+}
+
+    </style>
+    <div class="container">
+        <div class="cart">
+            <h2>View Cart</h2>
+            <div class="cart-item">
+                <div class="cart-item-header">
+                    <h3>25 Featured Ads for 30 Days</h3>
+                    <p>Package applicable for Furniture in All Country</p>
+                    <div class="price">
+                        <span>₹ 12,599</span>
+                        <div class="quantity">
+                            <button onclick="updateQuantity(-1)">-</button>
+                            <input type="text" id="quantity" value="1" readonly>
+                            <button onclick="updateQuantity(1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="price-details">
+                <h4>PRICE DETAILS</h4>
+                <div class="price-row">
+                    <span>Price</span>
+                    <span>₹ 12,599</span>
+                </div>
+                <div class="price-row">
+                    <span>Discount</span>
+                    <span>- ₹ 0</span>
+                </div>
+                <div class="total">
+                    <span>Total</span>
+                    <span>₹ 12,599</span>
+                </div>
+            </div>
+            <button class="pay-button">Pay ₹ 12,599</button>
+        </div>
+    </div>
+    <script>
+function updateQuantity(change) {
+    let quantityInput = document.getElementById('quantity');
+    let currentQuantity = parseInt(quantityInput.value);
+    let newQuantity = currentQuantity + change;
+
+    if (newQuantity > 0) {
+        quantityInput.value = newQuantity;
+        updatePrice(newQuantity);
+    }
+}
+
+function updatePrice(quantity) {
+    const basePrice = 12599;
+    let totalPrice = basePrice * quantity;
+    document.querySelector('.total span:last-child').textContent = `₹ ${totalPrice}`;
+    document.querySelector('.pay-button').textContent = `Pay ₹ ${totalPrice}`;
+}
+
+
+    </script>
+</body>
+</html>

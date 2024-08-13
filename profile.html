@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exxaa user profile</title>
+    <link rel="icon" href="./images/navbar/exxaa marketmdpi.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+      .personal-profile-edt-main-container{
+        max-width: 1000px;
+    height: 70vh;
+    margin: 0 auto;
+   
+      }
+        .personal-profile-edt-container {
+            margin: 0 auto;
+            margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .personal-profile-edt-left {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 20px;
+        }
+        .personal-profile-edt-right {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .personal-profile-edt-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .personal-profile-edt-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .personal-profile-edt-h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #002f34;
+        }
+        .personal-profile-edt-p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .personal-profile-edt-followers {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .personal-profile-edt-verified {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .personal-profile-edt-verified img {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .personal-profile-edt-verified img:hover {
+    transform: scale(1.2); 
+    border-color: #002f34; 
+}
+        .personal-profile-edt-button {
+            background-color: #002f34;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: color 0.3s ease; 
+        }
+        .personal-profile-edt-button:hover {
+    color: #0073ff;
+}
+        .personal-profile-edt-share {
+            color: #002f34;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .personal-profile-edt-right-image {
+            max-width: 200px;
+            margin-bottom: 15px;
+
+        }
+        .personal-profile-edt-right h3 {
+            color: #002f34;
+            margin-bottom: 10px;
+        }
+        .personal-profile-edt-right p {
+            color: #666;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .personal-profile-edt-container {
+                flex-direction: column;
+            }
+            .personal-profile-edt-left, .personal-profile-edt-right {
+                padding-right: 0;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+    .personal-profile-edt-container {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .personal-profile-edt-left, .personal-profile-edt-right {
+        padding-right: 0;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    .personal-profile-edt-h3 {
+        font-size: 20px;
+    }
+
+    .personal-profile-edt-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .personal-profile-edt-followers, .personal-profile-edt-verified {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .personal-profile-edt-main-container {
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .personal-profile-edt-container {
+        padding: 10px;
+    }
+
+    .personal-profile-edt-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .personal-profile-edt-h3 {
+        font-size: 18px;
+    }
+
+    .personal-profile-edt-p {
+        font-size: 12px;
+    }
+
+    .personal-profile-edt-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .personal-profile-edt-verified img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 320px) {
+    .personal-profile-edt-avatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    .personal-profile-edt-h3 {
+        font-size: 16px;
+    }
+
+    .personal-profile-edt-p {
+        font-size: 10px;
+    }
+
+    .personal-profile-edt-button {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- header start section -->
+    <div class="navbar-header">
+        <div class="navbar-container">
+            <div class="navbar-header-content">
+                <div class="navbar-logo">
+                    <img style="width: 100px; margin-top: 8px;" src="./images/navbar/exxaa marketmdpi.png" alt=""><span></span>
+                </div>
+                <div class="navbar-location-bar">
+                    <i class="fas fa-map-marker-alt navbar-location-icon"></i>
+                    <select class="navbar-location-select">
+                        <option value="gulberg-phase-4">Gulberg Phase 4, Lahore</option>
+                        <option value="gulberg-phase-3">Gulberg Phase 3, Lahore</option>
+                        <option value="gulberg-phase-2">Gulberg Phase 2, Lahore</option>
+                        <option value="gulberg-phase-1">Gulberg Phase 1, Lahore</option>
+                    </select>
+        
+                </div>
+                <div class="navbar-search-container">
+                    <div class="navbar-search-wrapper">
+                        <input type="text" class="navbar-search-input" placeholder="Search...">
+                        <i class="fas fa-search navbar-search-icon-inside"></i>
+                    </div>
+                </div>
+                
+             
+                <div class="navbar-icons">
+                    <div class="navbar-icon navbar-search-icon" onclick="toggleSearch()">
+                        <i class="fas fa-search"></i>
+                    </div>
+
+                    <br>
+                    <div id="navbar-icon" class="navbar-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    
+                    <div class="navbar-icon">
+                        <i class="fas fa-sign-in-alt"></i> 
+                                  </div>
+                    <div class="navbar-icon">
+                        
+                        <i class="fas fa-bell"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-mobile-search-container">
+        <input type="text" class="navbar-mobile-search-input" placeholder="Search...">
+    </div>
+    <script>
+        function toggleSearch() {
+            const mobileSearchContainer = document.querySelector('.navbar-mobile-search-container');
+            if (window.getComputedStyle(mobileSearchContainer).display === 'none') {
+                mobileSearchContainer.style.display = 'block';
+            } else {
+                mobileSearchContainer.style.display = 'none';
+            }
+        }
+    </script>
+    
+    <!-- second navbar -->
+    <nav class="secondary-nav">
+        <ul>
+            <li><span style="color: white;" class="all-categories">ALL CATEGORIES </span></li>
+            <li><a href="demo.html">Cars</a></li>
+            <li><a href="#">Motorcycles</a></li>
+            <li><a href="#">Mobile Phones</a></li>
+            <li><a href="#">For Sale: Houses & Apartments</a></li>
+            <li><a href="#">Scooters</a></li>
+            <li><a href="#">Commercial & Other Vehicles</a></li>
+            <li><a href="#">For Rent: Houses & Apartments</a></li>
+        </ul>
+    </nav>
+
+    <!-- second end navbar -->
+
+
+    <div class="personal-profile-edt-main-container">
+    <div class="personal-profile-edt-container">
+        <div class="personal-profile-edt-left">
+            <div class="personal-profile-edt-avatar">
+                <img src="placeholder-avatar.jpg" alt="profile-image" id="profile-image">
+            </div>
+            <h3 class="personal-profile-edt-h3">Muhammad rashid</h3>
+            <p class="personal-profile-edt-p">Member since Oct 2020</p>
+            <div class="personal-profile-edt-followers">
+                <span>3 Followers</span>
+                <span>0 Following</span>
+            </div>
+            <p class="personal-profile-edt-p">User verified with</p>
+            <div class="personal-profile-edt-verified">
+                <img src="./images/icons/phone-call_6815311.png" alt="Phone">
+                <img src="./images/icons/google.png" alt="WhatsApp">
+                <img src="./images/icons/mail_9545965.png" alt="Facebook">
+            </div>
+            <button class="personal-profile-edt-button" onclick="document.getElementById('file-upload').click()">
+                Edit profile
+            </button>
+            <input type="file" id="file-upload" style="display: none;" onchange="updateProfileImage(this)">
+            <p class="personal-profile-edt-share">Share Profile</p>
+        </div>
+        <div class="personal-profile-edt-right">
+            <img style="width: 300px;" src="./images/featured/creating-multilayered-webshop-development-showcase-unveiling-different-components-crisp-whit.png" alt="Items" class="personal-profile-edt-right-image">
+            <h3>You haven't listed anything yet</h3>
+            <p>Let go of what you don't use anymore</p>
+           <a href="sellpage.html">
+            <button class="personal-profile-edt-button">Start selling</button>
+           </a> 
+        </div>
+    </div>
+</div>
+
+<!-- footer start -->
+
+<nav class="footmob-navbar">
+    <a href="#" class="footmob-nav-item active">
+        <i class="fas fa-home"></i>
+        HOME
+    </a>
+    <a href="#" class="footmob-nav-item">
+        <i class="fas fa-comment"></i>
+        CHATS
+    </a>
+    <div class="footmob-sell-button">
+        <div class="footmob-sell-button-inner">
+            <i class="fas fa-plus"></i>
+          
+        </div>
+      
+    </div>
+    <a href="#" class="footmob-nav-item">
+        <i class="far fa-heart"></i>
+        MY ADS
+    </a>
+    <a href="#" class="footmob-nav-item">
+        <i class="far fa-user"></i>
+        ACCOUNT
+    </a>
+</nav>
+<script>
+    document.querySelectorAll('.footmob-nav-item').forEach(item => {
+        item.addEventListener('click', function() {
+            document.querySelectorAll('.footmob-nav-item').forEach(nav => nav.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+</script>
+
+<!-- footer section -->
+
+    <!-- profile image select -->
+    <script>
+        function updateProfileImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-image').src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+      <!-- profile image select end -->
+</body>
+</html>

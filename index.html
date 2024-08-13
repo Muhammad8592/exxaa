@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exxaa</title>
+    <link rel="icon" href="./images/navbar/exxaa marketmdpi.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="navbar-header">
+        <div class="navbar-container">
+            <div class="navbar-header-content">
+                <div class="navbar-logo">
+                    <img style="width: 100px; margin-top: 8px;" src="./images/navbar/exxaa marketmdpi.png"
+                        alt=""><span></span>
+                </div>
+                <div class="navbar-location-bar">
+                    <i class="fas fa-map-marker-alt navbar-location-icon"></i>
+                    <select class="navbar-location-select">
+                        <option value="gulberg-phase-4">Location</option>
+                        <option value="gulberg-phase-3">Gulberg Phase 3, Lahore</option>
+                        <option value="gulberg-phase-2">Gulberg Phase 2, Lahore</option>
+                        <option value="gulberg-phase-1">Gulberg Phase 1, Lahore</option>
+                    </select>
+
+                </div>
+                <div class="navbar-search-container">
+                    <div class="navbar-search-wrapper">
+                        <input type="text" class="navbar-search-input" placeholder="Search...">
+                        <i class="fas fa-search navbar-search-icon-inside"></i>
+                    </div>
+                </div>
+
+
+                <div class="navbar-icons">
+                    <div class="navbar-icon navbar-search-icon" onclick="toggleSearch()">
+                        <i class="fas fa-search"></i>
+                    </div>
+
+                    <br>
+                    <div id="navbar-icon" class="navbar-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div  id="register-icon" class="navbar-icon">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </div>
+                    <div class="navbar-icon" onclick="toggleNotification()">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-mobile-search-container">
+        <input type="text" class="navbar-mobile-search-input" placeholder="Search...">
+    </div>
+    <script>
+        function toggleSearch() {
+            const mobileSearchContainer = document.querySelector('.navbar-mobile-search-container');
+            if (window.getComputedStyle(mobileSearchContainer).display === 'none') {
+                mobileSearchContainer.style.display = 'block';
+            } else {
+                mobileSearchContainer.style.display = 'none';
+            }
+        }
+    </script>
+
+    <!-- second navbar -->
+    <nav class="secondary-nav">
+        <ul>
+            <li><span style="color: white;" class="all-categories">ALL CATEGORIES </span></li>
+            <li><a href="filterpage.html">Cars</a></li>
+            <li><a href="filterpage.html">Motorcycles</a></li>
+            <li><a href="filterpage.html">Mobile Phones</a></li>
+            <li><a href="filterpage.html">For Sale: Houses & Apartments</a></li>
+            <li><a href="filterpage.html">Scooters</a></li>
+            <li><a href="filterpage.html">Commercial & Other Vehicles</a></li>
+            <li><a href="filterpage.html">For Rent: Houses & Apartments</a></li>
+        </ul>
+    </nav>
+
+    <!-- second end navbar -->
+
+    <!-- notification start -->
+    <div class="notification-cntr">
+        <div class="notification" id="notification">
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <img src="./images/featured/2420.jpg" alt="icon">
+                </div>
+                <div class="notification-content">
+                    <p class="notification-title">Your Ad is not Live!</p>
+                    <p class="notification-time">Today</p>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <img src="./images/featured/2420.jpg" alt="icon">
+                </div>
+                <div class="notification-content">
+                    <p class="notification-title">Your Ad is not Live!</p>
+                    <p class="notification-time">Today</p>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <img src="./images/featured/2420.jpg" alt="icon">
+                </div>
+                <div class="notification-content">
+                    <p class="notification-title">Your ad just went online!</p>
+                    <p class="notification-time">Today</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- notification end -->
+
+<!-- registeration start -->
+
+<div class="register-exxaa-container-main">
+
+
+<div id="page1" class="register-exxaa-container">
+    <div class="register-exxaa-close" onclick="toggleRegisterContainer()">×</div>
+    <div class="register-exxaa-content">
+        <div class="register-exxaa-icon"><img src="./images/navbar/exxaa marketmdpi.png" alt="Guitar"></div>
+        <h2 class="register-exxaa-h2">Help us become one of the safest places to buy and sell</h2>
+        <div class="register-exxaa-dots-container">
+            <div class="register-exxaa-dots">
+                <span class="register-exxaa-dot"></span>
+                <span class="register-exxaa-dot"></span>
+                <span class="register-exxaa-dot"></span>
+            </div>
+        </div>
+        <button class="register-exxaa-button register-exxaa-btn-phone" onclick="showPage2()">Continue with phone</button>
+        <button class="register-exxaa-button register-exxaa-btn-google">
+            <img src="./images/featured/google (1).png" alt="Google">
+            Continue with Google
+        </button>
+        <div class="register-exxaa-or">OR</div>
+        <a href="#" class="register-exxaa-login-email">Login with Email</a>
+        <p class="register-exxaa-privacy-note">All your personal details are safe with us.</p>
+        <p class="register-exxaa-terms">
+            If you continue, you are accepting 
+            <a href="#">Exxaa Terms and Conditions</a> and 
+            <a href="#">Privacy Policy</a>
+        </p>
+    </div>
+</div>
+
+<!-- Phone Number Page -->
+<div id="page2" class="register-exxaa-container" style="display: none;">
+    <div class="register-exxaa-header">
+        <!-- <div class="register-exxaa-back-arrow" onclick="showPage1()">←</div> -->
+        <div class="register-exxaa-back-arrow" onclick="showPage1()">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <div class="register-exxaa-close" onclick="toggleRegisterContainer()">×</div>
+    </div>
+    <div class="register-exxaa-content">
+        <div class="register-exxaa-logo">Exxaa</div>
+        <h2 class="register-exxaa-h2">Enter your phone number</h2>
+        <div class="register-exxaa-phone-input">
+            <span class="register-exxaa-country-code">+91</span>
+            <input type="tel" placeholder="Phone Number">
+        </div>
+        <button class="register-exxaa-button register-exxaa-btn-next">Next</button>
+        <p class="register-exxaa-privacy-note">
+            Your contact number is never shared with external parties nor do we use it to spam you in any way.
+        </p>
+    </div>
+</div>
+</div>
+<!-- registeration end -->
+
+    <!-- categories list start -->
+
+    <div class="categories-main-cntr">
+        <div class="categories-list-container">
+            <section class="category-section">
+                <h2 class="categories-list-h2">Cars</h2>
+                <ul class="categories-list-ul">
+                    <li class="categories-list-li"><a href="filterpage.html" class="categories-list-a">
+                            Kia</a></li>
+                    <li class="categories-list-li"><a href="filterpage.html" class="categories-list-a">
+
+                            Hyundai Creta</a></li>
+
+                    <li class="categories-list-li"><a href="filterpage.html" class="categories-list-a">
+
+                            TOYOTA</a></li>
+                    <li class="categories-list-li"><a href="filterpage.html" class="categories-list-a">
+                            Suzuki Swift</a></li>
+                    <li class="categories-list-li"><a href="filterpage.html" class="categories-list-a">
+                            Skoda</a></li>
+                </ul>
+            </section>
+
+            <section class="category-section">
+                <h2 class="categories-list-h2">Properties</h2>
+                <ul class="categories-list-ul">
+                    <li class="categories-list-li"><a href="filterpage.html" class="categories-list-a">For Sale: Houses &
+                            Apartments</a>
+                    </li>
+                    <li class="categories-list-li"><a href="filterpage.html" class="categories-list-a">For Rent: Houses &
+                            Apartments</a>
+                    </li>
+                    <li class="categories-list-li"><a href="filterpage.html" class="categories-list-a">Lands & Plots</a></li>
+                    <li class="categories-list-li"><a href="filterpage.html" class="categories-list-a">For Rent: Shops & Offices</a>
+                    </li>
+                    <li class="categories-list-li"><a href="filterpage.html" class="categories-list-a">For Sale: Shops & Offices</a>
+                    </li>
+                    <li class="categories-list-li"><a href="filterpage.html" class="categories-list-a">PG & Guest Houses</a></li>
+                </ul>
+            </section>
+
+            <section class="category-section">
+                <h2 class="categories-list-h2">Mobiles</h2>
+                <ul class="categories-list-ul">
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Mobile Phones</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Accessories</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Tablets</a></li>
+                </ul>
+            </section>
+
+            <section class="category-section">
+                <h2 class="categories-list-h2">Jobs</h2>
+                <ul class="categories-list-ul">
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Data entry & Back office</a>
+                    </li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Sales & Marketing</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">BPO & Telecaller</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Driver</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Office Assistant</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Delivery & Collection</a></li>
+
+                </ul>
+            </section>
+
+            <section class="category-section">
+                <h2 class="categories-list-h2">Commercial Vehicles & Spares</h2>
+                <ul class="categories-list-ul">
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Data entry & Back office</a>
+                    </li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Sales & Marketing</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">BPO & Telecaller</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Driver</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Office Assistant</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Delivery & Collection</a></li>
+
+                </ul>
+            </section>
+
+            <section class="category-section">
+                <h2 class="categories-list-h2">Bikes</h2>
+                <ul class="categories-list-ul">
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Motorcycles</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Scooters</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Spare Parts</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Bicycles</a></li>
+
+                </ul>
+            </section>
+
+            <section class="category-section">
+                <h2 class="categories-list-h2">Furniture</h2>
+                <ul class="categories-list-ul">
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Sofa & Dining</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Beds & Wardrobes</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Home Decor & Garden</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Kids Furniture</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Other Household Items</a></li>
+
+                </ul>
+            </section>
+            <section class="category-section">
+                <h2 class="categories-list-h2">Pets</h2>
+                <ul class="categories-list-ul">
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Fishes & Aquarium</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Pet Food & Accessories</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Dogs</a></li>
+                    <li class="categories-list-li"><a href="#" class="categories-list-a">Other Pets</a></li>
+
+
+                </ul>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- categories list end -->
+
+    <!-- profile  start popup card -->
+    <div class="profile-card-cntr">
+        <div class="profile-card" id="profileCard" style="display: none;">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="./images/featured/feedbackimg02.png" alt="">
+                    <!-- <i class="fas fa-user"></i> -->
+                </div>
+                <div class="profile-name">Muhammad Rashid</div>
+            </div>
+            <a href="editprofile.html"> <button class="profile-edit-btn">View and edit profile</button></a>
+           
+           
+            <div class="profile-progress-section">
+                <div class="profile-progress-bar">
+                    <div class="profile-progress-step completed"></div>
+                    <div class="profile-progress-step"></div>
+                    <div class="profile-progress-step"></div>
+                    <div class="profile-progress-step"></div>
+                    <div class="profile-progress-step"></div>
+                </div>
+        
+                <div id="phone-popup" class="profile-progress-popup">
+                    <div class="profile-progress-popup-content">
+                        <span class="profile-progress-close">&times;</span>
+                        <h2>What is your phone number?</h2>
+                        <p>You'll use it for login and the usual stuff. We will send you a code to your phone</p>
+                        <div class="profile-progress-phone-input">
+                            <input type="text" value="+91" readonly>
+                            <input type="tel" id="phone-number" placeholder="Enter your phone number">
+                        </div>
+                        <button class="profile-progress-continue-btn" id="phone-continue-btn">Continue</button>
+                    </div>
+                </div>
+        
+                <div id="otp-popup" class="profile-progress-popup">
+                    <div class="profile-progress-popup-content">
+                        <span class="profile-progress-close">&times;</span>
+                        <h2>Enter the OTP</h2>
+                        <p>We have sent an OTP to your phone number</p>
+                        <div class="profile-progress-otp-input">
+                            <input type="text" maxlength="1">
+                            <input type="text" maxlength="1">
+                            <input type="text" maxlength="1">
+                            <input type="text" maxlength="1">
+                        </div>
+                        <button class="profile-progress-continue-btn" id="otp-continue-btn">Continue</button>
+                    </div>
+                </div>
+        
+                <div id="confirmation-popup" class="profile-progress-popup">
+                    <div class="profile-progress-popup-content">
+                        <span class="profile-progress-close">&times;</span>
+                        <div class="profile-progress-confirmation-circle">
+                            <div class="profile-progress-checkmark"></div>
+                        </div>
+                        <h2>Got it!</h2>
+                        <p>Your account is already set up.<br>Welcome to the crew</p>
+                        <button class="profile-progress-continue-btn" id="confirmation-continue-btn">Continue</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <ul class="profile-menu-list">
+                <a style="text-decoration: none;" href="myads.html">
+                    <li class="profile-menu-item"><i class="far fa-heart"></i> My ADS</li>
+                </a>
+                <a style="text-decoration: none;" href="businesspackage.html">
+                    <li class="profile-menu-item"><i class="far fa-clipboard"></i> Buy Business Packages</li>
+                </a>
+                <a style="text-decoration: none;" href="BoughtPackages.html">
+                    <li class="profile-menu-item"><i class="far fa-credit-card"></i> Bought Packages & Billing</li>
+                </a>
+                <a style="text-decoration: none;" href="help.html">
+                    <li class="profile-menu-item"><i class="far fa-question-circle"></i> Help</li>
+                </a>
+                <a style="text-decoration: none;" href="settings.html">
+                    <li class="profile-menu-item"><i class="fas fa-cog"></i> Settings</li>
+                </a>
+                <!-- <a style="text-decoration: none;" href=""> <li class="profile-menu-item"><i class="fas fa-download"></i> Install OLX Lite app</li></a> -->
+                <a onclick="triggerDownload()" style="text-decoration: none;" href="javascript:void(0);"
+                    onclick="alert('Download view will be here!');">
+                    <li class="profile-menu-item"><i class="fas fa-download"></i> Install Exxaa app</li>
+                </a>
+                <a style="text-decoration: none;" href="">
+                    <li class="profile-menu-item"><i class="fas fa-sign-out-alt"></i> Logout</li>
+                </a>
+            </ul>
+
+        </div>
+    </div>
+    <script>
+        function triggerDownload() {
+            alert('Download view will be here!');
+
+
+            var link = document.createElement('a');
+            link.href = 'https://play.google.com/store/apps/details?id=com.olx.southasia&hl=en_IN';
+            link.download = 'https://play.google.com/store/apps/details?id=com.olx.southasia&hl=en_IN';
+            link.click();
+        }
+    </script>
+    <!-- profile popup end card -->
+
+
+    <!-- notification start -->
+    <div class="notification-cntr">
+        <div class="notification" id="notification">
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <img src="https://via.placeholder.com/40" alt="icon">
+                </div>
+                <div class="notification-content">
+                    <p class="notification-title">Your Ad is not Live!</p>
+                    <p class="notification-time">Today</p>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <img src="https://via.placeholder.com/40" alt="icon">
+                </div>
+                <div class="notification-content">
+                    <p class="notification-title">Your Ad is not Live!</p>
+                    <p class="notification-time">Today</p>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <img src="https://via.placeholder.com/40" alt="icon">
+                </div>
+                <div class="notification-content">
+                    <p class="notification-title">Your ad just went online!</p>
+                    <p class="notification-time">Today</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- notification end -->
+    <!-- Categories start -->
+    <div class="Categories-container">
+        <div class="Categories-header">
+            <h1 class="Categories-h1">Browse All Categories <span style="color: rgb(84, 84, 84); font-size: 1.0rem;">15
+                    +</span></h1>
+            <a href="#" class="Categories-see-more">See more</a>
+        </div>
+        <div class="Categories-grid">
+            <div class="Categories-item">
+                <div class="Categories-icon properties">
+                    <img src="./images/categories/Building-two (建筑).png" alt="">
+                </div>
+                <p>Properties</p>
+            </div>
+            <div class="Categories-item">
+                <div class="Categories-icon furniture">
+                    <img src="./images/categories/Sofa (沙发).png" alt="">
+                </div>
+                <p>Furniture</p>
+            </div>
+            <div class="Categories-item">
+                <div class="Categories-icon cars">
+                    <img src="./images/categories/Car (汽车).png" alt="">
+                </div>
+                <p>Cars</p>
+            </div>
+            <div class="Categories-item">
+                <div class="Categories-icon electronics">
+                    <img src="./images/categories/Monitor-one (显示器).png" alt="">
+                </div>
+                <p style="text-align: center;">Electronics & Appliances</p>
+            </div>
+            <div class="Categories-item">
+                <div class="Categories-icon mobiles">
+                    <img src="./images/categories/Iphone (苹果手机).png" alt="">
+                </div>
+                <p>Mobiles</p>
+            </div>
+            <div class="Categories-item">
+                <div class="Categories-icon motorbikes">
+                    <img src="./images/categories/Bike (自行车).png" alt="">
+                </div>
+                <p>Motor Bikes</p>
+            </div>
+            <div class="Categories-item">
+                <div class="Categories-icon pets">
+                    <img src="./images/categories/Dog (狗).png" alt="">
+                </div>
+                <p>Pets</p>
+            </div>
+            <div class="Categories-item">
+                <div class="Categories-icon commercial">
+                    <img src="./images/categories/Truck (货车).png" alt="">
+                </div>
+                <p style="text-align: center;">Commercial Vehicles</p>
+            </div>
+            <div class="Categories-item">
+                <div class="Categories-icon more">
+                    <img src="./images/categories/Full-dress-longuette (礼服长裙).svg" alt="">
+                </div>
+                <p style="text-align: center;">Fashion &
+                    Botiques</p>
+            </div>
+
+            <div class="Categories-item">
+                <div class="Categories-icon more">
+                    <img src="./images/categories/Necktie (领带).svg" alt="">
+                </div>
+                <p>Job</p>
+            </div>
+            <div class="Categories-item">
+                <div class="Categories-icon more">
+                    <img src="./images/categories/Bookshelf (书籍).svg" alt="">
+                </div>
+                <p style="text-align: center;">Books &
+                    Antiques</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories end  -->
+
+
+    <!-- showroom start -->
+    <div class="showroom-container">
+        <div class="showroom-header">
+            <h1 class="showroom-h1">Browse Showrooms</h1>
+            <a href="#" class="showroom-see-more">See more</a>
+        </div>
+        <div class="showroom-slider">
+            <div class="showroom-track">
+                <div class="showroom-item">
+                    <img src="images/showrooms/iphone.jpg" alt="Mobiles">
+                    <p>Mobiles</p>
+                </div>
+                <div class="showroom-item">
+                    <img src="images/showrooms/property sale.jpg" alt="Property for Sale">
+                    <p>Property for Sale</p>
+                </div>
+                <div class="showroom-item">
+                    <img src="images/showrooms/vehicle.jpg" alt="Vehicles">
+                    <p>Vehicles</p>
+                </div>
+                <div class="showroom-item">
+                    <img src="images/showrooms/bike.jpg" alt="Bikes">
+                    <p>Bikes</p>
+                </div>
+                <div class="showroom-item">
+                    <img src="images/showrooms/busines.jpg" alt="Business Industrial">
+                    <p>Business Industrial</p>
+                </div>
+                <div class="showroom-item">
+                    <img src="images/showrooms//fashion.jpg" alt="Business Industrial">
+                    <p>Fashion</p>
+                </div>
+                <div class="showroom-item">
+                    <img src="images/showrooms/electronicapplience.jpg" alt="Business Industrial">
+                    <p>Electronics & Appliances
+                    </p>
+                </div>
+                <div class="showroom-item">
+                    <img src="images/showrooms/furniture.jpg" alt="Business Industrial">
+                    <p>Furniture</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end showroom  -->
+
+    <!-- featured start -->
+    <div class="featured-container">
+        <div class="featured-header">
+            <h1 class="featured-h1">Featured <span style="color: rgb(84, 84, 84); font-size: 1.0rem;">15 +</span></h1>
+            <a href="#" class="featured-see-more">See more</a>
+        </div>
+        <div class="card-slider">
+            <div class="card-track">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/featured/mobile__1_-removebg-preview.png" alt="Macbook 14">
+                        <span class="card-featured">Featured</span>
+                        <span class="wishlist-icon">
+                            <div class="love-icon">
+                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </span>
+                        <style>
+                            .heart-icon {
+                                width: 20px;
+                                height: 20px;
+                                padding: 5px;
+                                background-color: #fbfbfb;
+                                border-radius: 50%;
+                                cursor: pointer;
+                                transition: fill 0.3s ease, stroke 0.3s ease;
+                            }
+
+                            .heart-icon:not(.clicked) {
+                                fill: none;
+                                stroke: rgb(189, 189, 189);
+                            }
+
+                            .heart-icon.clicked {
+                                fill: red;
+                                stroke: red;
+                            }
+                        </style>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                const heartIcons = document.querySelectorAll('.heart-icon');
+
+                                heartIcons.forEach(function (icon) {
+                                    icon.addEventListener('click', function (event) {
+                                        event.preventDefault();
+                                        this.classList.toggle('clicked');
+                                    });
+                                });
+                            });
+                        </script>
+                    </div>
+                    <a style="text-decoration: none; color: black;" href="details.html">
+                        <div class="card-content">
+                            <h2>Macbook 14</h2>
+                            <p class="price">Rs 450,000</p>
+                            <div class="details">
+                                <span class="condition">New</span>
+                                <span class="rating">10/10</span>
+                            </div>
+                            <p class="location">Gulberg Phase 4, Lahore</p>
+                            <p class="date">22 Sep</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/featured/8594.jpg" alt="Iphone 14 Pro Max">
+                        <span class="card-featured">Featured</span>
+                        <span class="wishlist-icon">
+                            <div class="love-icon" id="love-icon">
+                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="card-content">
+                        <h2>Iphone 14 Pro Max</h2>
+                        <p class="price">Rs 600,000</p>
+                        <div class="details">
+                            <span class="condition">Used</span>
+                            <span class="rating">08/10</span>
+                        </div>
+                        <p class="location">Gulberg Phase 4, Lahore</p>
+                        <p class="date">22 Sep</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/featured/2149287461.jpg" alt="Iphone 14 Pro Max">
+                        <span class="card-featured">Featured</span>
+                        <span class="wishlist-icon">
+                            <div class="love-icon" id="love-icon">
+                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                    </div>
+                    <div class="card-content">
+                        <h2>Iphone 14 Pro Max</h2>
+                        <p class="price">Rs 600,000</p>
+                        <div class="details">
+                            <span class="condition">Used</span>
+                            <span class="rating">08/10</span>
+                        </div>
+                        <p class="location">Gulberg Phase 4, Lahore</p>
+                        <p class="date">22 Sep</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/featured/97324.jpg" alt="Iphone 14 Pro Max">
+                        <span class="card-featured">Featured</span>
+                        <span class="wishlist-icon">
+                            <div class="love-icon" id="love-icon">
+                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                    </div>
+                    <div class="card-content">
+                        <h2>Iphone 14 Pro Max</h2>
+                        <p class="price">Rs 600,000</p>
+                        <div class="details">
+                            <span class="condition">Used</span>
+                            <span class="rating">08/10</span>
+                        </div>
+                        <p class="location">Gulberg Phase 4, Lahore</p>
+                        <p class="date">22 Sep</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- featured end  -->
+
+
+    <!-- add start -->
+
+    <div class="ad-card-cntr">
+        <div class="ad-card">
+            <div class="ad-badge">Ad</div>
+            <img class="ad-image" src="./images/add/Yellow Shoe.png" alt="Nike Free Metcon">
+            <div class="ad-content">
+                <p class="ad-title">Nike</p>
+                <p class="ad-subtitle">Free Metcon</p>
+                <p class="ad-price">$120.99</p>
+            </div>
+        </div>
+    </div>
+    <!-- add end -->
+
+
+    <!-- featured bike start -->
+    <div class="featured-container">
+        <div class="featured-header">
+            <h1 class="featured-h1">Cars <span style="color: rgb(84, 84, 84); font-size: 1.0rem;">15 +</span></h1>
+            <a href="#" class="featured-see-more">See more</a>
+        </div>
+        <div class="card-slider">
+            <div class="card-track">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/featured/car1.jpg" alt="Macbook 14">
+                        <span class="card-featured">Featured</span>
+                        <span class="wishlist-icon">
+                            <div class="love-icon" id="love-icon">
+                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                    </div>
+                    <div class="card-content">
+                        <h2>Macbook 14</h2>
+                        <p class="price">Rs 450,000</p>
+                        <div class="details">
+                            <span class="condition">New</span>
+                            <span class="rating">10/10</span>
+                        </div>
+                        <p class="location">Gulberg Phase 4, Lahore</p>
+                        <p class="date">22 Sep</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/featured/car2.jpg" alt="Iphone 14 Pro Max">
+                        <span class="card-featured">Featured</span>
+                        <span class="wishlist-icon">
+                            <div class="love-icon" id="love-icon">
+                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                    </div>
+                    <div class="card-content">
+                        <h2>Iphone 14 Pro Max</h2>
+                        <p class="price">Rs 600,000</p>
+                        <div class="details">
+                            <span class="condition">Used</span>
+                            <span class="rating">08/10</span>
+                        </div>
+                        <p class="location">Gulberg Phase 4, Lahore</p>
+                        <p class="date">22 Sep</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/featured/car3.jpg" alt="Iphone 14 Pro Max">
+                        <span class="card-featured">Featured</span>
+                        <span class="wishlist-icon">
+                            <div class="love-icon" id="love-icon">
+                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                    </div>
+                    <div class="card-content">
+                        <h2>Iphone 14 Pro Max</h2>
+                        <p class="price">Rs 600,000</p>
+                        <div class="details">
+                            <span class="condition">Used</span>
+                            <span class="rating">08/10</span>
+                        </div>
+                        <p class="location">Gulberg Phase 4, Lahore</p>
+                        <p class="date">22 Sep</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/featured/car4.jpg" alt="Iphone 14 Pro Max">
+                        <span class="card-featured">Featured</span>
+                        <span class="wishlist-icon">
+                            <div class="love-icon" id="love-icon">
+                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                    </div>
+                    <div class="card-content">
+                        <h2>Iphone 14 Pro Max</h2>
+                        <p class="price">Rs 600,000</p>
+                        <div class="details">
+                            <span class="condition">Used</span>
+                            <span class="rating">08/10</span>
+                        </div>
+                        <p class="location">Gulberg Phase 4, Lahore</p>
+                        <p class="date">22 Sep</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- featured bike end  -->
+
+
+    <!-- featured car start -->
+    <div class="featured-container">
+        <div class="featured-header">
+            <h1 class="featured-h1">MotorBikes <span style="color: rgb(84, 84, 84); font-size: 1.0rem;">15 +</span></h1>
+            <a href="#" class="featured-see-more">See more</a>
+        </div>
+        <div class="card-slider">
+            <div class="card-track">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/featured/2148189616.jpg" alt="Macbook 14">
+                        <span class="card-featured">Featured</span>
+                        <span class="wishlist-icon">
+                            <div class="love-icon" id="love-icon">
+                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                    </div>
+                    <div class="card-content">
+                        <h2>Macbook 14</h2>
+                        <p class="price">Rs 450,000</p>
+                        <div class="details">
+                            <span class="condition">New</span>
+                            <span class="rating">10/10</span>
+                        </div>
+                        <p class="location">Gulberg Phase 4, Lahore</p>
+                        <p class="date">22 Sep</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/featured/2904.jpg" alt="Iphone 14 Pro Max">
+                        <span class="card-featured">Featured</span>
+                        <span class="wishlist-icon">
+                            <div class="love-icon" id="love-icon">
+                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                    </div>
+                    <div class="card-content">
+                        <h2>Iphone 14 Pro Max</h2>
+                        <p class="price">Rs 600,000</p>
+                        <div class="details">
+                            <span class="condition">Used</span>
+                            <span class="rating">08/10</span>
+                        </div>
+                        <p class="location">Gulberg Phase 4, Lahore</p>
+                        <p class="date">22 Sep</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/featured/3242.jpg" alt="Iphone 14 Pro Max">
+                        <span class="card-featured">Featured</span>
+                        <span class="wishlist-icon">
+                            <div class="love-icon" id="love-icon">
+                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                    </div>
+                    <div class="card-content">
+                        <h2>Iphone 14 Pro Max</h2>
+                        <p class="price">Rs 600,000</p>
+                        <div class="details">
+                            <span class="condition">Used</span>
+                            <span class="rating">08/10</span>
+                        </div>
+                        <p class="location">Gulberg Phase 4, Lahore</p>
+                        <p class="date">22 Sep</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/featured/2420.jpg" alt="Iphone 14 Pro Max">
+                        <span class="card-featured">Featured</span>
+                        <span class="wishlist-icon">
+                            <div class="love-icon" id="love-icon">
+                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                    </div>
+                    <div class="card-content">
+                        <h2>Iphone 14 Pro Max</h2>
+                        <p class="price">Rs 600,000</p>
+                        <div class="details">
+                            <span class="condition">Used</span>
+                            <span class="rating">08/10</span>
+                        </div>
+                        <p class="location">Gulberg Phase 4, Lahore</p>
+                        <p class="date">22 Sep</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- featured car end  -->
+
+
+
+
+    <!-- profile popup end card -->
+
+    <!-- footer start -->
+
+    <nav class="footmob-navbar">
+        <a href="#" class="footmob-nav-item active">
+            <i class="fas fa-home"></i>
+            HOME
+        </a>
+        <a href="chatpage.html" class="footmob-nav-item">
+            <i class="fas fa-comment"></i>
+            CHATS
+        </a>
+        <div class="footmob-sell-button">
+            <div class="footmob-sell-button-inner">
+                <a href="sellpage.html">
+                    <i class="fas fa-plus"></i>
+                </a>
+            </div>
+
+        </div>
+        <a href="myads.html" class="footmob-nav-item">
+            <i class="far fa-heart"></i>
+            MY ADS
+        </a>
+        <a href="editprofile.html" class="footmob-nav-item">
+            <i class="far fa-user"></i>
+            ACCOUNT
+        </a>
+    </nav>
+    <script>
+        document.querySelectorAll('.footmob-nav-item').forEach(item => {
+            item.addEventListener('click', function () {
+                document.querySelectorAll('.footmob-nav-item').forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+   <!-- footer start -->
+    <!-- profile card script -->
+    <script>
+        document.querySelector('#navbar-icon').addEventListener('click', function () {
+            console.log("sdfsfsd");
+            const profileCard = document.getElementById('profileCard');
+            if (profileCard.style.display === 'none' || profileCard.style.display === '') {
+                profileCard.style.display = 'block';
+            } else {
+                profileCard.style.display = 'none';
+            }
+        });
+    </script>
+
+    <!-- profile card end script -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- footer end  -->
+
+    <!-- categories start script -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const allCategories = document.querySelector('.all-categories');
+            const categoriesContainer = document.querySelector('.categories-list-container');
+
+            allCategories.addEventListener('click', function () {
+                this.classList.toggle('active');
+                if (categoriesContainer.style.display === 'none' || categoriesContainer.style.display === '') {
+                    categoriesContainer.style.display = 'flex';
+                } else {
+                    categoriesContainer.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+
+    <!-- categories stop script -->
+
+
+    <!-- notification  -->
+    <script>
+        function toggleNotification() {
+            const notification = document.getElementById('notification');
+            notification.style.display = notification.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+
+    <!-- notification -->
+
+    <script>
+        // Show phone number popup when a completed step is clicked
+        document.querySelectorAll('.profile-progress-step.completed').forEach(step => {
+            step.addEventListener('click', () => {
+                document.getElementById('phone-popup').style.display = 'block';
+            });
+        });
+
+        // Close phone number popup
+        document.querySelector('#phone-popup .profile-progress-close').addEventListener('click', () => {
+            document.getElementById('phone-popup').style.display = 'none';
+        });
+
+        // Continue button in phone number popup
+        document.getElementById('phone-continue-btn').addEventListener('click', () => {
+            document.getElementById('phone-popup').style.display = 'none';
+            document.getElementById('otp-popup').style.display = 'block';
+        });
+
+        // Close OTP popup
+        document.querySelector('#otp-popup .profile-progress-close').addEventListener('click', () => {
+            document.getElementById('otp-popup').style.display = 'none';
+        });
+
+        // Continue button in OTP popup
+        document.getElementById('otp-continue-btn').addEventListener('click', () => {
+            document.getElementById('otp-popup').style.display = 'none';
+            document.getElementById('confirmation-popup').style.display = 'block';
+        });
+
+        // Close confirmation popup
+        document.querySelector('#confirmation-popup .profile-progress-close').addEventListener('click', () => {
+            document.getElementById('confirmation-popup').style.display = 'none';
+        });
+
+        // Continue button in confirmation popup
+        document.getElementById('confirmation-continue-btn').addEventListener('click', () => {
+            document.getElementById('confirmation-popup').style.display = 'none';
+        });
+
+        // Close popups when clicking outside
+        window.onclick = (event) => {
+            if (event.target == document.getElementById('phone-popup')) {
+                document.getElementById('phone-popup').style.display = 'none';
+            }
+            if (event.target == document.getElementById('otp-popup')) {
+                document.getElementById('otp-popup').style.display = 'none';
+            }
+            if (event.target == document.getElementById('confirmation-popup')) {
+                document.getElementById('confirmation-popup').style.display = 'none';
+            }
+        }
+    </script>
+ <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+ <!-- register script -->
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dots = document.querySelectorAll('.register-exxaa-dot');
+        let currentDot = 0;
+
+        function slideDots() {
+            dots[currentDot].classList.remove('active');
+            currentDot = (currentDot + 1) % dots.length;
+            dots[currentDot].classList.add('active');
+
+            const dotsContainer = document.querySelector('.register-exxaa-dots');
+            dotsContainer.style.transform = `translateX(-${currentDot * 13}px)`;
+        }
+
+        // Set the first dot as active initially
+        dots[0].classList.add('active');
+
+        // Start the automatic sliding
+        setInterval(slideDots, 2000); // Change slide every 2 seconds
+    });
+
+    function showPage2() {
+        document.getElementById('page1').style.display = 'none';
+        document.getElementById('page2').style.display = 'block';
+    }
+
+    function showPage1() {
+        document.getElementById('page2').style.display = 'none';
+        document.getElementById('page1').style.display = 'block';
+    }
+
+    // Toggle the visibility of the registration container
+    function toggleRegisterContainer() {
+        const container = document.getElementById('page1');
+        const isVisible = container.style.display === 'block';
+        container.style.display = isVisible ? 'none' : 'block';
+    }
+
+    // Add event listener to the icon to show the registration container
+    document.getElementById('register-icon').addEventListener('click', function() {
+        toggleRegisterContainer();
+    });
+</script>
+
+
+ <!-- register stop script -->
+</body>
+
+</html>

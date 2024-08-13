@@ -1,0 +1,477 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exxaa Sell Categories</title>
+    <link rel="icon" href="./images/navbar/exxaa marketmdpi.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .sell-categories-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .sell-categories-content, .sub-categories-container {
+            width: 50%;
+            padding: 20px;
+        }
+
+        .sell-categories-header {
+            display: flex;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #007bff;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .sell-categories-h2 {
+            padding: 10px;
+            font-size: 14px;
+            margin: 0;
+            color: #333;
+        }
+
+        .sell-categories-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sell-categories-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .sell-categories-item:hover {
+            background-color: #f1f1f1;
+            transform: translateY(-2px);
+        }
+
+        .category-icon {
+            font-size: 24px;
+            margin-right: 20px;
+            color: #007bff;
+        }
+
+        .sell-categories-p {
+            flex: 1;
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .arrow-icon {
+            font-size: 18px;
+            color: #007bff;
+        }
+
+        .sub-categories-container {
+            display: none;
+        }
+
+        .sub-categories-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sub-categories-item {
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        @media (max-width: 600px) {
+            .sell-categories-container {
+                flex-direction: column;
+                width: 90%;
+                padding: 10px;
+            }
+
+            .sell-categories-content, .sub-categories-container {
+                width: 100%;
+            }
+
+            .sell-categories-h2 {
+                font-size: 20px;
+            }
+
+            .sell-categories-p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 700px) {
+    .sell-categories-container {
+        flex-direction: column;
+        width: 90%;
+        padding: 10px;
+    }
+
+    .sell-categories-content, .sub-categories-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .sell-categories-h2 {
+        font-size: 16px;
+    }
+
+    .sell-categories-p {
+        font-size: 16px;
+    }
+
+    .category-icon {
+        font-size: 20px;
+    }
+
+    .arrow-icon {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .sell-categories-h2 {
+        font-size: 14px;
+    }
+
+    .sell-categories-p {
+        font-size: 14px;
+    }
+
+    .category-icon {
+        font-size: 18px;
+    }
+
+    .arrow-icon {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    .sell-categories-h2 {
+        font-size: 12px;
+    }
+
+    .sell-categories-p {
+        font-size: 12px;
+    }
+
+    .category-icon {
+        font-size: 16px;
+    }
+
+    .arrow-icon {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 280px) {
+    .sell-categories-h2 {
+        font-size: 10px;
+    }
+
+    .sell-categories-p {
+        font-size: 10px;
+    }
+
+    .category-icon {
+        font-size: 14px;
+    }
+
+    .arrow-icon {
+        font-size: 10px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <div class="navbar-header">
+        <div class="navbar-container">
+            <div class="navbar-header-content">
+                <div class="navbar-logo">
+                    <img style="width: 100px; margin-top: 8px;" src="./images/navbar/exxaa marketmdpi.png"
+                        alt=""><span></span>
+                </div>
+                <div class="navbar-location-bar">
+                    <i class="fas fa-map-marker-alt navbar-location-icon"></i>
+                    <select class="navbar-location-select">
+                        <option value="gulberg-phase-4">Gulberg Phase 4, Lahore</option>
+                        <option value="gulberg-phase-3">Gulberg Phase 3, Lahore</option>
+                        <option value="gulberg-phase-2">Gulberg Phase 2, Lahore</option>
+                        <option value="gulberg-phase-1">Gulberg Phase 1, Lahore</option>
+                    </select>
+
+                </div>
+                <div class="navbar-search-container">
+                    <div class="navbar-search-wrapper">
+                        <input type="text" class="navbar-search-input" placeholder="Search...">
+                        <i class="fas fa-search navbar-search-icon-inside"></i>
+                    </div>
+                </div>
+
+
+                <div class="navbar-icons">
+                    <div class="navbar-icon navbar-search-icon" onclick="toggleSearch()">
+                        <i class="fas fa-search"></i>
+                    </div>
+
+                    <br>
+                    <div id="navbar-icon" class="navbar-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div  id="register-icon" class="navbar-icon">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </div>
+                    <div class="navbar-icon" onclick="toggleNotification()">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-mobile-search-container">
+        <input type="text" class="navbar-mobile-search-input" placeholder="Search...">
+    </div>
+    <script>
+        function toggleSearch() {
+            const mobileSearchContainer = document.querySelector('.navbar-mobile-search-container');
+            if (window.getComputedStyle(mobileSearchContainer).display === 'none') {
+                mobileSearchContainer.style.display = 'block';
+            } else {
+                mobileSearchContainer.style.display = 'none';
+            }
+        }
+    </script>
+
+    <!-- second navbar -->
+    <nav class="secondary-nav">
+        <ul>
+            <li><span style="color: white;" class="all-categories">ALL CATEGORIES </span></li>
+            <li><a href="filterpage.html">Cars</a></li>
+            <li><a href="filterpage.html">Motorcycles</a></li>
+            <li><a href="filterpage.html">Mobile Phones</a></li>
+            <li><a href="filterpage.html">For Sale: Houses & Apartments</a></li>
+            <li><a href="filterpage.html">Scooters</a></li>
+            <li><a href="filterpage.html">Commercial & Other Vehicles</a></li>
+            <li><a href="filterpage.html">For Rent: Houses & Apartments</a></li>
+        </ul>
+    </nav>
+
+    <!-- second end navbar -->
+
+
+
+
+    <div class="sell-categories-container">
+        <section class="sell-categories-content">
+            <header class="sell-categories-header">
+                <button class="back-button"><a href="index.html"><i class="fas fa-arrow-left"></i></a></button>
+                <h1 class="sell-categories-h2">POST YOUR AD</h1>
+            </header>
+            <h2 class="sell-categories-h2">CHOOSE A CATEGORY</h2>
+            <ul class="sell-categories-list" id="mainCategories">
+                <li class="sell-categories-item" onclick="showSubCategories('carsSubCategories')">
+                    <i class="fas fa-car category-icon"></i>
+                    <p class="sell-categories-p">Cars</p>
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </li>
+                <li class="sell-categories-item" onclick="showSubCategories('propertiesSubCategories')">
+                    <i class="fas fa-home category-icon"></i>
+                    <p class="sell-categories-p">Properties</p>
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </li>
+                <li class="sell-categories-item" onclick="showSubCategories('mobilesSubCategories')">
+                    <i class="fas fa-mobile-alt category-icon"></i>
+                    <p class="sell-categories-p">Mobiles</p>
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </li>
+                <li class="sell-categories-item" onclick="showSubCategories('jobsSubCategories')">
+                    <i class="fas fa-briefcase category-icon"></i>
+                    <p class="sell-categories-p">Jobs</p>
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </li>
+                <li class="sell-categories-item" onclick="showSubCategories('bikesSubCategories')">
+                    <i class="fas fa-motorcycle category-icon"></i>
+                    <p class="sell-categories-p">Bikes</p>
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </li>
+                <li class="sell-categories-item" onclick="showSubCategories('electronicapplienceSubCategories')">
+                    <i class="fas fa-tv category-icon"></i>
+                    <p class="sell-categories-p">Electronics & Appliances</p>
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </li>
+                <li class="sell-categories-item" onclick="showSubCategories('commercialSubCategories')">
+                    <i class="fas fa-truck category-icon"></i>
+                    <p class="sell-categories-p">Commercial Vehicles & Spares</p>
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </li>
+                <li class="sell-categories-item" onclick="showSubCategories('furnitureSubCategories')">
+                    <i class="fas fa-couch category-icon"></i>
+                    <p class="sell-categories-p">Furniture</p>
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </li>
+                <li class="sell-categories-item" onclick="showSubCategories('fashionSubCategories')">
+                    <i class="fas fa-tshirt category-icon"></i>
+                    <p class="sell-categories-p">Fashion</p>
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </li>
+                <li class="sell-categories-item" onclick="showSubCategories('books&sportsSubCategories')">
+                    <i class="fas fa-book category-icon"></i>
+                    <p class="sell-categories-p">Books, Sports & Hobbies</p>
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </li>
+                <li class="sell-categories-item" onclick="showSubCategories('petsSubCategories')">
+                    <i class="fas fa-paw category-icon"></i>
+                    <p class="sell-categories-p">Pets</p>
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </li>
+                <li class="sell-categories-item" onclick="showSubCategories('servicesSubCategories')">
+                    <i class="fas fa-concierge-bell category-icon"></i>
+                    <p class="sell-categories-p">Services</p>
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </li>
+           
+            </ul>
+        </section>
+        <section class="sub-categories-container" id="subCategories">
+            <h2 class="sell-categories-h2">SUB-CATEGORIES</h2>
+            <ul class="sub-categories-list" id="carsSubCategories">
+                <a style="text-decoration: none;" href="sellcategoriesadd.html"> <li class="sub-categories-item">Cars</li></a>
+             
+            </ul>
+            <ul class="sub-categories-list" id="propertiesSubCategories">
+                <li class="sub-categories-item">For Sale: Houses & Apartments</li>
+                <li class="sub-categories-item">For Rent: Houses & Apartments</li>
+                <li class="sub-categories-item">Lands & Plots   </li>
+                <li class="sub-categories-item">For Rent: Shops & Offices</li>
+                <li class="sub-categories-item">For Sale: Shops & Offices</li>
+                <li class="sub-categories-item">PG & Guest Houses</li>
+            </ul>
+            <ul class="sub-categories-list" id="mobilesSubCategories">
+                <li class="sub-categories-item">Mobile Phones</li>
+                <li class="sub-categories-item">Accessories</li>
+                <li class="sub-categories-item">Tablets</li>
+            </ul>
+          
+            <ul class="sub-categories-list" id="jobsSubCategories">
+                <li class="sub-categories-item">Data entry & Back office</li>
+                <li class="sub-categories-item">FSales & Marketing</li>
+                <li class="sub-categories-item">BPO & Telecaller</li>
+                <li class="sub-categories-item">Driver</li>
+                <li class="sub-categories-item">Office Assistant</li>
+                <li class="sub-categories-item">Delivery & Collection</li>
+                <li class="sub-categories-item">Teacher</li>
+                <li class="sub-categories-item">Cook</li>
+                <li class="sub-categories-item">Receptionist & Front office</li>
+                <li class="sub-categories-item">Operator & Technician</li>
+                <li class="sub-categories-item">IT Engineer & Developer</li>
+                <li class="sub-categories-item">Hotel & Travel Executive</li>
+                <li class="sub-categories-item">Accountant</li>
+                <li class="sub-categories-item">Designer</li>
+                <li class="sub-categories-item">Other Jobs</li>
+            </ul>
+            <ul class="sub-categories-list" id="bikesSubCategories">
+                <li class="sub-categories-item">Motorcycles</li>
+                <li class="sub-categories-item">Scooters</li>
+                <li class="sub-categories-item">Spare Parts</li>
+                <li class="sub-categories-item">Bicycles</li>
+            </ul>
+            <ul class="sub-categories-list" id="electronicapplienceSubCategories">
+                <li class="sub-categories-item">TVs, Video - Audio</li>
+                <li class="sub-categories-item">Kitchen & Other Appliances</li>
+                <li class="sub-categories-item">Computers & Laptops</li>
+                <li class="sub-categories-item">Cameras & Lenses</li>
+                <li class="sub-categories-item">Games & Entertainment</li>
+                <li class="sub-categories-item">Fridges</li>
+                <li class="sub-categories-item">Computer Accessories</li>
+                <li class="sub-categories-item">Hard Disks, Printers & Monitors</li>
+                <li class="sub-categories-item">ACs</li>
+                <li class="sub-categories-item">Washing Machines</li>
+            </ul>
+            <ul class="sub-categories-list" id="commercialSubCategories">
+                <li class="sub-categories-item">Commercial & Other Vehicles</li>
+                <li class="sub-categories-item">Spare Parts</li>
+                <li class="sub-categories-item">Accessories</li>
+            </ul>
+            <ul class="sub-categories-list" id="furnitureSubCategories">
+                <li class="sub-categories-item">Sofa & Dining</li>
+                <li class="sub-categories-item">Beds & Wardrobes</li>
+                <li class="sub-categories-item">Home Decor & Garden</li>
+                <li class="sub-categories-item">Kids Furniture</li>
+                <li class="sub-categories-item">Other Household Items</li>
+            </ul>
+            <ul class="sub-categories-list" id="fashionSubCategories">
+                <li class="sub-categories-item">Men</li>
+                <li class="sub-categories-item">Women</li>
+                <li class="sub-categories-item">Kids</li>
+            </ul>
+            <ul class="sub-categories-list" id="books&sportsSubCategories">
+                <li class="sub-categories-item">Books</li>
+                <li class="sub-categories-item">Gym & Fitness</li>
+                <li class="sub-categories-item">Musical Instruments</li>
+                <li class="sub-categories-item">Sports Equipment</li>
+                <li class="sub-categories-item">Other Hobbies</li>
+            </ul>
+            <ul class="sub-categories-list" id="petsSubCategories">
+                <li class="sub-categories-item">Fishes & Aquarium</li>
+                <li class="sub-categories-item">Pet Food & Accessories</li>
+                <li class="sub-categories-item">Dogs</li>
+                <li class="sub-categories-item">Other Pets</li>
+            </ul>
+            <ul class="sub-categories-list" id="servicesSubCategories">
+                <li class="sub-categories-item">Education & Classes</li>
+                <li class="sub-categories-item">Tours & Travel</li>
+                <li class="sub-categories-item">Electronics Repair & Services</li>
+                <li class="sub-categories-item">Health & Beauty</li>
+                <li class="sub-categories-item">Home Renovation & Repair</li>
+                <li class="sub-categories-item">Cleaning & Pest Control</li>
+                <li class="sub-categories-item">Legal & Documentation Services</li>
+                <li class="sub-categories-item">Packers & Movers</li>
+                <li class="sub-categories-item">Other Services</li>
+            </ul>
+        </section>
+    </div>
+    <script>
+        function showSubCategories(categoryId) {
+            const subCategories = document.querySelectorAll('.sub-categories-list');
+            subCategories.forEach(subCategory => {
+                subCategory.style.display = 'none';
+            });
+
+            document.getElementById(categoryId).style.display = 'block';
+            document.getElementById('subCategories').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

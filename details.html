@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exxax detail page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+<style>
+/* The Modal (background) */
+.chat-seller-popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.chat-seller-popup .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 400px;
+    text-align: left;
+}
+
+.chat-seller-popup .modal-content h2 {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.chat-seller-popup .modal-content p {
+    text-align: center;
+}
+
+.chat-seller-popup .modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-seller-popup .modal-content .form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-seller-popup .modal-content label {
+    width: 40%; /* Adjust this width as necessary */
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.chat-seller-popup .modal-content input[type="text"],
+.chat-seller-popup .modal-content input[type="email"],
+.chat-seller-popup .modal-content input[type="checkbox"] {
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.chat-seller-popup .modal-content input[type="checkbox"] {
+    width: auto; /* Use default width */
+}
+
+.chat-seller-popup .modal-content button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+</style>
+<!-- navbar section -->
+<div class="navbar-header">
+    <div class="navbar-container">
+        <div class="navbar-header-content">
+            <div class="navbar-logo">
+                <img style="width: 100px; margin-top: 8px;" src="./images/navbar/exxaa marketmdpi.png"
+                    alt=""><span></span>
+            </div>
+            <div class="navbar-location-bar">
+                <i class="fas fa-map-marker-alt navbar-location-icon"></i>
+                <select class="navbar-location-select">
+                    <option value="gulberg-phase-4">Gulberg Phase 4, Lahore</option>
+                    <option value="gulberg-phase-3">Gulberg Phase 3, Lahore</option>
+                    <option value="gulberg-phase-2">Gulberg Phase 2, Lahore</option>
+                    <option value="gulberg-phase-1">Gulberg Phase 1, Lahore</option>
+                </select>
+
+            </div>
+            <div class="navbar-search-container">
+                <div class="navbar-search-wrapper">
+                    <input type="text" class="navbar-search-input" placeholder="Search...">
+                    <i class="fas fa-search navbar-search-icon-inside"></i>
+                </div>
+            </div>
+
+
+            <div class="navbar-icons">
+                <div class="navbar-icon navbar-search-icon" onclick="toggleSearch()">
+                    <i class="fas fa-search"></i>
+                </div>
+
+                <br>
+                <div id="navbar-icon" class="navbar-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+
+                <div class="navbar-icon">
+                    <i class="fas fa-sign-in-alt"></i>
+                </div>
+                <div class="navbar-icon" onclick="toggleNotification()">
+                    <i class="fas fa-bell"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="navbar-mobile-search-container">
+    <input type="text" class="navbar-mobile-search-input" placeholder="Search...">
+</div>
+<script>
+    function toggleSearch() {
+        const mobileSearchContainer = document.querySelector('.navbar-mobile-search-container');
+        if (window.getComputedStyle(mobileSearchContainer).display === 'none') {
+            mobileSearchContainer.style.display = 'block';
+        } else {
+            mobileSearchContainer.style.display = 'none';
+        }
+    }
+</script>
+
+<!-- second navbar -->
+<nav class="secondary-nav">
+    <ul>
+        <li><span style="color: white;" class="all-categories">ALL CATEGORIES </span></li>
+        <li><a href="filterpage.html">Cars</a></li>
+        <li><a href="filterpage.html">Motorcycles</a></li>
+        <li><a href="filterpage.html">Mobile Phones</a></li>
+        <li><a href="filterpage.html">For Sale: Houses & Apartments</a></li>
+        <li><a href="filterpage.html">Scooters</a></li>
+        <li><a href="filterpage.html">Commercial & Other Vehicles</a></li>
+        <li><a href="filterpage.html">For Rent: Houses & Apartments</a></li>
+    </ul>
+</nav>
+
+<!-- second end navbar -->
+
+
+<!-- navbar end section -->
+
+    <div class="details-container">
+        <div class="details-left-column">
+            <div class="details-card">
+                <div class="details-job-title">
+                    <h1>Mobile technician job</h1>
+                    <!-- <div class="details-action-icons">
+                        <span title="Share">🔗</span>
+                        <span title="Favorite">❤️</span>
+                    </div> -->
+                </div>
+                <p>Telecom Colony, Vijayawada, Andhra Pradesh · 6 days ago</p>
+
+                <div class="details-image-slider">
+                    <img src="./images/featured/2148189616.jpg" alt="Main Image" class="details-main-image" id="details-mainImage">
+                    <div class="details-slider-nav">
+                        <button onclick="changeImage(-1)">‹</button>
+                        <button onclick="changeImage(1)">›</button>
+                    </div>
+                </div>
+                <div class="details-thumbnail-container" id="details-thumbnailContainer"></div>
+            </div>
+
+            <div class="details-card details-details">
+                <h2>Details</h2>
+                <table>
+                    <tr>
+                        <td>Salary period</td>
+                        <td>Weekly</td>
+                        <td>Position type</td>
+                        <td>Full-time</td>
+                    </tr>
+                    <tr>
+                        <td>Salary from</td>
+                        <td>20000</td>
+                        <td>Salary to</td>
+                        <td>30000</td>
+                       
+                    </tr>
+                </table>
+            </div>
+
+            <div class="details-card description">
+                <h2>Description</h2>
+                <p>Wanted mobile technician Software and Hardware with experience 90141590 fo fo</p>
+            </div>
+        </div>
+
+        <div class="details-right-column">
+        
+            <div class="details-card">
+                <div class="details-seller-info">
+                    <div class="job-info">
+                        <div class="job-title">Mobile Technician Job</div>
+                        <div class="job-location">Telecom Colony, Vijayawada, Andhra Pradesh</div>
+                        <div class="job-posted">6 days ago</div>
+                    </div>
+                    <div class="details-action-icons">
+                        <span title="Share">&#128279;</span>
+                        <span title="Favorite">&#9825;</span>
+                    </div>
+                </div>
+            </div>
+            
+
+           
+
+
+            <!-- ???? -->
+            <div class="details-card">
+                <div class="details-seller-info">
+                    <img src="./images/featured/feedbackimg02.png" alt="Seller Avatar" class="details-seller-avatar">
+                    <div>
+                        <h3>Fislam Md</h3>
+                        <p>Member since May 2020</p>
+                    </div>
+                </div>
+                <button id="chatWithSellerButton" class="details-chat-button">Chat with seller</button>
+            </div>
+
+
+
+            <!-- chat seller modal -->
+
+            <div id="chatSellerModal" class="chat-seller-popup">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>CONTACT RECRUITER</h2>
+                    <p>This will assist recruiters to contact you promptly</p>
+                    <form>
+                        <div class="form-row">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" value="Muhammad Rashid" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="form-row">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" name="country" value="+91" visible>
+                        </div>
+                        <div class="form-row">
+                            <label for="mobile">Mobile Number *</label>
+                            <input type="text" id="mobile" name="mobile" value="8592949654" required>
+                        </div>
+                        <div class="form-row">
+                            <label >  <input style="margin-right: 200px;" type="checkbox" id="contactByOtherRecruiters" name="contactByOtherRecruiters"></label>
+                            <label > <label style="font-size: 0.4rem; font-weight: 700;" for="contactByOtherRecruiters">I am ok to be contacted by other recruiters too</label></label>
+                        </div>
+                    
+                        <button type="button" id="requestCallbackBtn">Request Callback</button>
+                    </form>
+                </div>
+            </div>
+
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+    // Get the modal
+    var modal = document.getElementById("chatSellerModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("chatWithSellerButton");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // Get the Request Callback button
+    var requestCallbackBtn = document.getElementById("requestCallbackBtn");
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks on the Request Callback button, close the modal and do something
+    requestCallbackBtn.onclick = function() {
+        modal.style.display = "none";
+        alert("Callback requested!"); // Add your request logic here
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+});
+
+            </script>
+            <!-- chat seller model end -->
+         
+            <div class="details-card">
+                <h3>Posted in</h3>
+                <p>Telecom Colony, Vijayawada, Andhra Pradesh</p>
+                <div class="details-map-container">
+                    <iframe
+                        width="100%"
+                        height="200"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.851687571761!2d76.50759097479168!3d9.86280779023572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d128ccddb21%3A0x97696aea9b5a163c!2sVamoch%20Creative%20Agency%20-%20UI%2FUX%2C%20Digital%20Marketing%2C%20Branding%20Agency!5e0!3m2!1sen!2sin!4v1721371397011!5m2!1sen!2sin" allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="details-ad-info">
+                    <p>AD ID 1754756408 · <a href="#">REPORT THIS AD</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- adds run -->
+
+    <div style="margin-top: 50px; padding: 30px; margin-bottom: 50px;" class="add-run-card-cntr">
+        <div class="add-run-ad-card">
+            <div class="add-run-image-slideshow">
+                <img src="./images/featured/2148189616.jpg" alt="Ad Image 1" class="add-run-slide active">
+                <img src="./images/featured/8594.jpg" alt="Ad Image 2" class="add-run-slide">
+                <img src="./images/featured/car2.jpg" alt="Ad Image 3" class="add-run-slide">
+            </div>
+         
+        </div>
+    </div>
+<!-- add stop section -->
+ 
+<!-- footer start -->
+
+<nav class="footmob-navbar">
+    <a href="#" class="footmob-nav-item active">
+        <i class="fas fa-home"></i>
+        HOME
+    </a>
+    <a href="#" class="footmob-nav-item">
+        <i class="fas fa-comment"></i>
+        CHATS
+    </a>
+    <div class="footmob-sell-button">
+        <div class="footmob-sell-button-inner">
+            <i class="fas fa-plus"></i>
+          
+        </div>
+      
+    </div>
+    <a href="#" class="footmob-nav-item">
+        <i class="far fa-heart"></i>
+        MY ADS
+    </a>
+    <a href="#" class="footmob-nav-item">
+        <i class="far fa-user"></i>
+        ACCOUNT
+    </a>
+</nav>
+
+<!-- footer end section -->
+
+<!-- footer script start -->
+<script>
+    document.querySelectorAll('.footmob-nav-item').forEach(item => {
+        item.addEventListener('click', function() {
+            document.querySelectorAll('.footmob-nav-item').forEach(nav => nav.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+</script>
+<!-- footer script end -->
+    <!-- detail page script main section -->
+    <script>
+        const mainImage = document.getElementById('details-mainImage');
+        const thumbnailContainer = document.getElementById('details-thumbnailContainer');
+        const imagePaths = [
+            './images/featured/2148189616.jpg',
+            './images/featured/car2.jpg',
+            './images/featured/8594.jpg',
+            './images/featured/3242.jpg',
+            './images/featured/8594.jpg',
+            './images/featured/car1.jpg'
+        ];
+        let currentImageIndex = 0;
+
+        function updateMainImage(index) {
+            mainImage.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                mainImage.src = imagePaths[index];
+                mainImage.style.transform = 'scale(1)';
+            }, 150);
+        }
+
+        imagePaths.forEach((path, index) => {
+            const thumbnail = document.createElement('img');
+            thumbnail.src = path;
+            thumbnail.alt = `Thumbnail ${index + 1}`;
+            thumbnail.classList.add('details-thumbnail');
+            thumbnail.onclick = () => {
+                updateMainImage(index);
+                currentImageIndex = index;
+                document.querySelectorAll('.details-thumbnail').forEach(thumb => thumb.classList.remove('active'));
+                thumbnail.classList.add('active');
+            };
+            thumbnailContainer.appendChild(thumbnail);
+        });
+
+        function changeImage(direction) {
+            currentImageIndex = (currentImageIndex + direction + imagePaths.length) % imagePaths.length;
+            updateMainImage(currentImageIndex);
+            document.querySelectorAll('.details-thumbnail').forEach((thumb, index) => {
+                thumb.classList.toggle('active', index === currentImageIndex);
+            });
+        }
+
+        // Initialize the first image as active
+        document.querySelector('.details-thumbnail').classList.add('active');
+    </script>
+    <!-- detail page script main section -->
+
+
+    <!-- adds script  -->
+    <script>
+        function changeImage() {
+            const slides = document.querySelectorAll('.add-run-slide');
+            const activeSlide = document.querySelector('.add-run-slide.active');
+            activeSlide.classList.remove('active');
+            
+            let nextSlide = activeSlide.nextElementSibling;
+            if (!nextSlide) {
+                nextSlide = slides[0];
+            }
+            
+            nextSlide.classList.add('active');
+        }
+
+        setInterval(changeImage, 3000); 
+    </script>
+
+    <!-- adds stop script -->
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLX Help Center</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        header, footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #006654;
+        }
+        .sell-button {
+            background-color: #4285f4;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .warning {
+            background-color: #ffebe6;
+            color: #e74c3c;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+        .info {
+            background-color: #e6f3ff;
+            color: #3498db;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+        main {
+            text-align: center;
+      
+        width: 100%;
+            margin: 0 auto;
+            flex: 1;
+ 
+            background-color: #27071f;
+            /* background-image: url(./images/featured/2149287461.jpg); */
+            object-fit: cover;
+
+        }
+        h1 {
+            color: #006654;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .search-bar {
+            width: 80%;
+            max-width: 600px;
+            padding: 12px 20px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            font-size: 16px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>');
+            background-repeat: no-repeat;
+            background-position: 15px center;
+            padding-left: 45px;
+        }
+        .illustration {
+            max-width: 100%;
+            height: 150px;
+            margin: 20px 0;
+            background-color: #e6f3ff;
+            border-radius: 10px;
+        }
+        .help-header-cntr{
+        
+            width: 100%;
+        }
+        .help-topics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+        .topic-button {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: box-shadow 0.3s, transform 0.3s;
+            font-weight: bold;
+            color: #006654;
+        }
+        .topic-button:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        footer {
+            background-color: #002f34;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-left select {
+            background-color: #002f34;
+            color: white;
+            border: 1px solid white;
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                margin-top: 10px;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"> Exxaa Help Center</div>
+        <button class="sell-button">SELL</button>
+    </header>
+    
+    <div class="warning">Never scan QR code or share your OTP with anyone**हिंदी भाषा चयन करने के लिए यहाँ क्लिक करें**</div>
+    <div class="info">Please note we have updated our Terms of Use. To know more - Please Click here to know more</div>
+    
+    <main>
+        <div class="help-header-cntr">
+            <h1>HI, HOW CAN WE HELP YOU?</h1>
+            <input type="text" class="search-bar" placeholder="Search the Help Center">
+            
+       
+        </div>
+ 
+        
+        <div class="help-topics">
+            <button class="topic-button">Video Ads</button>
+            <button class="topic-button">Contact Us</button>
+            <button class="topic-button">Classifieds</button>
+            <button class="topic-button">Trust and Safety</button>
+            <button class="topic-button">Legal & Privacy information</button>
+            <button class="topic-button">Technical Issues - Trouble Shooting Steps (Email)</button>
+            <button class="topic-button">Coronavirus Advisory</button>
+            <button class="topic-button">User Testimonials</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-left">
+            <span>India Help Center</span>
+            <select>
+                <option>English (US)</option>
+               <option value="">Inidan</option>
+               <option value="">American</option>
+               <option value="">Europe</option>
+            </select>
+        </div>
+        <div class="footer-right">
+            Free Classifieds in India • © 2006-2024 Exxaa
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Exxaa</title>
+    <link rel="icon" href="./images/navbar/exxaa marketmdpi.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            /* padding: 20px; */
+        }
+        .billing-adds-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .billing-adds-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .billing-adds-title {
+            font-size: 24px;
+            color: #002f34;
+            font-weight: bold;
+        }
+        .billing-adds-nav {
+            display: flex;
+        }
+        .billing-adds-nav-item {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            color: #666;
+        }
+        .billing-adds-nav-item.active {
+            border-bottom: 2px solid #002f34;
+            color: #002f34;
+            font-weight: bold;
+        }
+        .billing-adds-sidebar {
+            width: 200px;
+            float: left;
+        }
+        .billing-adds-sidebar-item {
+            padding: 10px 0;
+            cursor: pointer;
+            color: #666;
+        }
+        .billing-adds-sidebar-item.active {
+            color: #000;
+            font-weight: bold;
+        }
+        .billing-adds-content {
+            margin-left: 220px;
+            padding: 20px;
+            display: none; /* Initially hidden */
+        }
+        .billing-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        .billing-form h3 {
+            color: #002f34;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: calc(100% - 20px);
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group select {
+            width: 100%;
+        }
+        .form-group button {
+            background-color: #002f34;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:disabled {
+            background-color: #ccc;
+        }
+        .form-note {
+            color: #666;
+            font-size: 12px;
+        }
+        .form-actions {
+            text-align: right;
+        }
+        .empty-content {
+            text-align: center;
+            padding: 50px;
+        }
+        .billing-adds-icon {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        .billing-adds-message {
+            font-size: 18px;
+            color: #002f34;
+            margin-bottom: 10px;
+        }
+        .billing-adds-submessage {
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            .billing-adds-sidebar {
+                float: none;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .billing-adds-content {
+                margin-left: 0;
+            }
+        }
+
+
+        /* invoice */
+
+
+        .invoice-container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.invoice-logo img {
+    width: 100px;
+}
+
+.invoice-header-text h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.invoice-header-text p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.invoice-address {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.invoice-address div {
+    width: 30%;
+    box-sizing: border-box;
+}
+
+.invoice-details {
+    width: 30%;
+    box-sizing: border-box;
+}
+
+.invoice-table {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.invoice-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.invoice-table th, .invoice-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.invoice-totals {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.invoice-terms {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.invoice-footer {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.invoice-footer-logo img {
+    width: 100px;
+}
+
+.invoice-company-details {
+    text-align: left;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .invoice-address, .invoice-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .invoice-address div, .invoice-details {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .invoice-footer-logo {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .invoice-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .invoice-header-text h1 {
+        font-size: 20px;
+    }
+    .invoice-header-text p {
+        font-size: 12px;
+    }
+    .invoice-table th, .invoice-table td {
+        font-size: 12px;
+        padding: 6px;
+    }
+    .invoice-totals, .invoice-terms, .invoice-company-details {
+        font-size: 12px;
+    }
+}
+/* invoice end */
+    </style>
+</head>
+<body>
+
+    <div class="navbar-header">
+        <div class="navbar-container">
+            <div class="navbar-header-content">
+                <div class="navbar-logo">
+                    <img style="width: 100px; margin-top: 8px;" src="./images/navbar/exxaa marketmdpi.png"
+                        alt=""><span></span>
+                </div>
+                <div class="navbar-location-bar">
+                    <i class="fas fa-map-marker-alt navbar-location-icon"></i>
+                    <select class="navbar-location-select">
+                        <option value="gulberg-phase-4">Location</option>
+                        <option value="gulberg-phase-3">Gulberg Phase 3, Lahore</option>
+                        <option value="gulberg-phase-2">Gulberg Phase 2, Lahore</option>
+                        <option value="gulberg-phase-1">Gulberg Phase 1, Lahore</option>
+                    </select>
+
+                </div>
+                <div class="navbar-search-container">
+                    <div class="navbar-search-wrapper">
+                        <input type="text" class="navbar-search-input" placeholder="Search...">
+                        <i class="fas fa-search navbar-search-icon-inside"></i>
+                    </div>
+                </div>
+
+
+                <div class="navbar-icons">
+                    <div class="navbar-icon navbar-search-icon" onclick="toggleSearch()">
+                        <i class="fas fa-search"></i>
+                    </div>
+
+                    <br>
+                    <div id="navbar-icon" class="navbar-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div  id="register-icon" class="navbar-icon">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </div>
+                    <div class="navbar-icon" onclick="toggleNotification()">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-mobile-search-container">
+        <input type="text" class="navbar-mobile-search-input" placeholder="Search...">
+    </div>
+    <script>
+        function toggleSearch() {
+            const mobileSearchContainer = document.querySelector('.navbar-mobile-search-container');
+            if (window.getComputedStyle(mobileSearchContainer).display === 'none') {
+                mobileSearchContainer.style.display = 'block';
+            } else {
+                mobileSearchContainer.style.display = 'none';
+            }
+        }
+    </script>
+
+    <!-- second navbar -->
+    <nav class="secondary-nav">
+        <ul>
+            <li><span style="color: white;" class="all-categories">ALL CATEGORIES </span></li>
+            <li><a href="filterpage.html">Cars</a></li>
+            <li><a href="filterpage.html">Motorcycles</a></li>
+            <li><a href="filterpage.html">Mobile Phones</a></li>
+            <li><a href="filterpage.html">For Sale: Houses & Apartments</a></li>
+            <li><a href="filterpage.html">Scooters</a></li>
+            <li><a href="filterpage.html">Commercial & Other Vehicles</a></li>
+            <li><a href="filterpage.html">For Rent: Houses & Apartments</a></li>
+        </ul>
+    </nav>
+
+    <!-- second end navbar -->
+
+
+
+
+    <div class="billing-adds-container">
+        <aside class="billing-adds-sidebar">
+            <div class="billing-adds-sidebar-item" data-content="bought-packages">Bought Packages</div>
+            <div class="billing-adds-sidebar-item" data-content="billing">Billing</div>
+            <div class="billing-adds-sidebar-item active" data-content="invoices">Invoices</div>
+        </aside>
+
+        <!-- section one -->
+        <div class="billing-adds-content" id="bought-packages-content">
+            <div class="billing-adds-nav">
+                <div class="billing-adds-nav-item active" data-tab="active">ACTIVE</div>
+                <div class="billing-adds-nav-item" data-tab="scheduled">SCHEDULED</div>
+                <div class="billing-adds-nav-item" data-tab="expired">EXPIRED</div>
+            </div>
+            <div class="empty-content" id="active-content">
+                <img src="empty-bag-icon.png" alt="Empty" class="billing-adds-icon">
+                <div class="billing-adds-message">Nothing here...</div>
+                <div class="billing-adds-submessage">You don't have any active packages</div>
+            </div>
+            <div class="empty-content" id="scheduled-content" style="display:none;">
+                <img src="empty-bag-icon.png" alt="Empty" class="billing-adds-icon">
+                <div class="billing-adds-message">Nothing scheduled...</div>
+                <div class="billing-adds-submessage">You don't have any scheduled packages</div>
+            </div>
+            <div class="empty-content" id="expired-content" style="display:none;">
+                <img src="empty-bag-icon.png" alt="Empty" class="billing-adds-icon">
+                <div class="billing-adds-message">Expired Packages</div>
+                <div class="billing-adds-submessage">You have no expired packages</div>
+            </div>
+        </div>
+           <!-- section one -->
+
+
+           <!-- Billing section -->
+        <div class="billing-adds-content" id="billing-content">
+            <div class="billing-form">
+                <h3>Billing Information</h3>
+                <div class="form-group">
+                    <label for="gst-status">Do you have a GST Number?</label>
+                    <select id="gst-status">
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="customer-name">Customer Name</label>
+                    <input type="text" id="customer-name">
+                </div>
+                <div class="form-group">
+                    <label for="business-name">Business Name</label>
+                    <input type="text" id="business-name">
+                </div>
+                <div class="form-group">
+                    <label for="gst-number">GST Number</label>
+                    <input type="text" id="gst-number">
+                </div>
+                <div class="form-group">
+                    <button id="verify-gstin">Verify GSTIN</button>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="address1">Address Line 1</label>
+                    <input type="text" id="address1">
+                </div>
+                <div class="form-group">
+                    <label for="address2">Address Line 2</label>
+                    <input type="text" id="address2">
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <select id="state">
+                        <option value="">Select State</option>
+                        <!-- Add state options here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city">
+                </div>
+                <div class="form-group">
+                    <label for="pincode">Pin Code</label>
+                    <input type="text" id="pincode">
+                </div>
+                <div class="form-note">
+                    * All fields are mandatory
+                </div>
+                <div class="form-actions">
+                    <button disabled>Save changes</button>
+                </div>
+            </div>
+        </div>
+               <!-- Billing section -->
+
+
+        <div class="billing-adds-content" id="invoices-content">
+            <div class="invoice-container">
+                <header class="invoice-header">
+                    <div class="invoice-logo">
+                        <img src="./images/navbar/exxaa marketmdpi.png" alt="OLX Logo">
+                    </div>
+                    <div class="invoice-header-text">
+                        <h1>TAX INVOICE</h1>
+                        <p>ORIGINAL FOR RECIPIENT</p>
+                    </div>
+                </header>
+                <section class="invoice-address">
+                    <div class="invoice-bill-to">
+                        <h2>Bill to</h2>
+                        <p>OLX Customer</p>
+                        <p>Contact Person Address</p>
+                        <p>INDIA</p>
+                        <p>State: Haryana</p>
+                        <p>State Code: 06</p>
+                        <p>Country: INDIA</p>
+                        <p>Email: olxcustomer@olx.in</p>
+                    </div>
+                    <div class="invoice-ship-to">
+                        <h2>Ship to</h2>
+                        <p>OLX Customer</p>
+                        <p>Contact Person Address</p>
+                        <p>INDIA</p>
+                        <p>State: Haryana</p>
+                        <p>State Code: 06</p>
+                        <p>Country: INDIA</p>
+                        <p>Email: olxcustomer@olx.in</p>
+                    </div>
+                    <div class="invoice-details">
+                        <p>Invoice Number: OLXIN1900010106</p>
+                        <p>Invoice Date: 2019-04-05</p>
+                        <p>Customer Number: R_56936927</p>
+                        <p>Place of Supply: Haryana</p>
+                    </div>
+                </section>
+                <section class="invoice-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>HSN</th>
+                                <th>Description</th>
+                                <th>Qty.</th>
+                                <th>Rate</th>
+                                <th>Gross Amount (Excl. GST)</th>
+                                <th>Discount</th>
+                                <th>Transaction Value</th>
+                                <th>IGST Rate</th>
+                                <th>IGST Amt.</th>
+                                <th>CGST Rate</th>
+                                <th>CGST Amt.</th>
+                                <th>SGST Rate</th>
+                                <th>SGST Amt.</th>
+                                <th>Invoice Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>9983</td>
+                                <td>Featured Listing Services Boost To Top</td>
+                                <td>1</td>
+                                <td>199</td>
+                                <td>168.64</td>
+                                <td>0.00</td>
+                                <td>168.64</td>
+                                <td>0.00%</td>
+                                <td>0.00</td>
+                                <td>9.00%</td>
+                                <td>15.18</td>
+                                <td>9.00%</td>
+                                <td>15.18</td>
+                                <td>199.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section class="invoice-totals">
+                    <p>Total SGST Amount: Fifteen rupees Eighteen paise only</p>
+                    <p>Total CGST Amount: Fifteen rupees Eighteen paise only</p>
+                    <p>Total IGST Amount: Zero</p>
+                    <p>Total Invoice Amount: One Hundred Ninety Nine only</p>
+                </section>
+                <section class="invoice-terms">
+                    <h2>Terms & Conditions</h2>
+                    <p>Goods and Services Tax Identification Number (GSTIN) details of customers is mandatory for passing on the credit of GST charged. In case GSTIN details are not provided, OLX would assume that the customer is not registered with GST authorities. OLX would not be responsible for independently verifying the registration status of customers.</p>
+                    <p>Tax payable under reverse charge: No.</p>
+                    <p>OLX IN Credit Policy is 60 days from date of invoice.</p>
+                </section>
+                <footer class="invoice-footer">
+                    <div class="invoice-footer-logo">
+                        <img src="./images/navbar/exxaa marketmdpi.png" alt="Footer Logo">
+                    </div>
+                    <div class="invoice-company-details">
+                        <p>OLX INDIA Private Limited</p>
+                        <p>Address: DLF Corporate Park, Tower 3A, Ground Floor, DLF City, Phase III, M.G. Road, Gurgaon, Haryana - 122002</p>
+                        <p>PAN Number: AABCO1674L</p>
+                        <p>CIN: U74900HR2009PTC053732</p>
+                        <p>GSTIN: 06AABCO1674L1ZA</p>
+                    </div>
+                </footer>
+            </div>
+
+
+
+            <!-- <img src="./images/featured/2149287461.jpg" alt="Invoice Image" style="width:100%; height:auto;"> -->
+        </div>
+    </div>
+
+    <script>
+        // Sidebar interactivity
+        const sidebarItems = document.querySelectorAll('.billing-adds-sidebar-item');
+        const boughtPackagesContent = document.getElementById('bought-packages-content');
+        const billingContent = document.getElementById('billing-content');
+        const invoicesContent = document.getElementById('invoices-content');
+
+        // Tab interactivity
+        const navItems = document.querySelectorAll('.billing-adds-nav-item');
+        const activeContent = document.getElementById('active-content');
+        const scheduledContent = document.getElementById('scheduled-content');
+        const expiredContent = document.getElementById('expired-content');
+
+        // Function to switch content view
+        function switchContent(selectedContentId) {
+            // Hide all content
+            boughtPackagesContent.style.display = 'none';
+            billingContent.style.display = 'none';
+            invoicesContent.style.display = 'none';
+
+            // Show the selected content
+            document.getElementById(selectedContentId).style.display = 'block';
+        }
+
+        // Initially show the bought packages content
+        switchContent('bought-packages-content');
+
+        // Sidebar click events
+        sidebarItems.forEach(item => {
+            item.addEventListener('click', function() {
+                sidebarItems.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+
+                const contentId = this.getAttribute('data-content') + '-content';
+                switchContent(contentId);
+            });
+        });
+
+        // Nav click events
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navItems.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+
+                // Show the relevant tab content
+                const tab = this.getAttribute('data-tab');
+                activeContent.style.display = tab === 'active' ? 'block' : 'none';
+                scheduledContent.style.display = tab === 'scheduled' ? 'block' : 'none';
+                expiredContent.style.display = tab === 'expired' ? 'block' : 'none';
+            });
+        });
+
+        // Form interactivity to enable the Save button
+        const inputs = document.querySelectorAll('.billing-form input, .billing-form select');
+        const saveButton = document.querySelector('.form-actions button');
+
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                // Enable the button if all fields are filled
+                let allFilled = true;
+                inputs.forEach(i => {
+                    if (i.value === '') allFilled = false;
+                });
+                saveButton.disabled = !allFilled;
+            });
+        });
+    </script>
+</body>
+</html>

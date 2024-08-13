@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Example</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-MzH+ZTqgq2P8g3T3xG+f4zoz5q5Zl7PevpDfGMGp8Y2/gZz" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .myads-action-btn {
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: white;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .mark-as-modal {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            height: 400px;
+            padding: 20px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 1000;
+        }
+
+        .mark-as-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .mark-as-modal-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .mark-as-modal-close {
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .mark-as-modal-body {
+            padding: 20px 0;
+            flex-grow: 1;
+        }
+
+        .mark-as-item-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: rgb(248, 248, 248);
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .mark-as-item-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .mark-as-item-title {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .mark-as-buyer-selection {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mark-as-buyer-selection p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .mark-as-buyer-option {
+            background: none;
+            border: none;
+            color: #0066c0;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 0;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .mark-as-modal-footer {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .mark-as-sold-btn {
+            background-color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Example buttons that will open the modal -->
+    <button class="myads-action-btn">Mark as sold</button>
+    <button class="myads-action-btn">Mark as sold</button>
+    <button class="myads-action-btn">Mark as sold</button>
+
+    <!-- Overlay for the modal -->
+    <div class="modal-overlay"></div>
+
+    <!-- Modal structure -->
+    <div class="mark-as-modal">
+        <div class="mark-as-modal-header">
+            <span class="mark-as-modal-title">Mark as sold</span>
+            <span class="mark-as-modal-close"><i class="fas fa-times">x</i></span>
+        </div>
+        <div class="mark-as-modal-body">
+            <div class="mark-as-item-info">
+                <img src="./images/featured/2148189616.jpg" alt="Land For Sale" class="mark-as-item-image">
+                <span class="mark-as-item-title">Land For sale in koonamavu</span>
+            </div>
+            <div class="mark-as-buyer-selection">
+                <p>Select your buyer</p>
+                <button class="mark-as-buyer-option">I didn't sell this on OLX</button>
+            </div>
+        </div>
+        <div class="mark-as-modal-footer">
+            <button class="mark-as-sold-btn">Mark as sold</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.querySelector('.mark-as-modal');
+            const overlay = document.querySelector('.modal-overlay');
+            const closeModalButton = document.querySelector('.mark-as-modal-close');
+
+            // Function to open modal
+            function openModal() {
+                modal.style.display = 'flex';
+                overlay.style.display = 'block';
+            }
+
+            // Function to close modal
+            function closeModal() {
+                modal.style.display = 'none';
+                overlay.style.display = 'none';
+            }
+
+            // Attach event listeners to all buttons with class 'myads-action-btn'
+            document.querySelectorAll('.myads-action-btn').forEach(button => {
+                button.addEventListener('click', openModal);
+            });
+
+            // Attach event listener to close button and overlay
+            closeModalButton.addEventListener('click', closeModal);
+            overlay.addEventListener('click', closeModal);
+        });
+    </script>
+</body>
+</html>

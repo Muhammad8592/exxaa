@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exxaa filter  Buy & Sell Used Bikes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./images/navbar/exxaa marketmdpi.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px;
+            /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        main {
+            display: flex;
+            padding: 20px;
+        }
+
+        aside {
+            width: 350px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-right: 20px;
+            box-sizing: border-box;
+            margin-bottom: 100px;
+        }
+
+        .filter {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+
+        }
+
+        .filter h2 {
+            margin-top: 0;
+            font-size: 16px;
+            /* border-bottom: 1px solid #ddd; */
+            padding-bottom: 10px;
+        }
+
+
+
+
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* border-bottom: 1px solid #ddd; */
+            padding-bottom: 10px;
+        }
+
+
+
+        .filter ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .filter ul ul {
+            padding-left: 20px;
+        }
+
+        .filter ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .filter ul li:hover {
+            color: #000;
+            cursor: pointer;
+        }
+
+        .filter input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .filter input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .slider {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        section.content {
+            flex-grow: 1;
+        }
+
+        .bike-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .bike-item {
+            background-color: #fff;
+            /* padding: 20px; */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: center;
+            position: relative;
+        }
+
+
+
+        .bike-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+
+        .bike-details {
+            text-align: left;
+            padding: 20px;
+        }
+
+        .bike-details h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .bike-details p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .bike-details .date {
+            color: #999;
+        }
+
+
+        .range-selector {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .range-selector input {
+            width: 50px;
+            padding: 5px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .range-selector span {
+            margin-right: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .range-selector button {
+            background-color: #d3d3d3;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .range-selector button:hover {
+            background-color: #c0c0c0;
+        }
+
+        .favorite {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* .favorite:hover {
+            color: #c00;
+        } */
+
+        .ad-section {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar {
+            width: 310px;
+            /* padding: 20px; */
+            /* background-color: #f0f0f0; */
+        }
+
+        .sidebar h2 {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .brand-item {
+            /* background-color: white; */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+        }
+
+        .brand-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .brand-item img {
+            max-width: 80%;
+            height: auto;
+        }
+
+        .section-content {
+            padding: 0;
+        }
+
+        .option-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .option-list li {
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 5px;
+            cursor: pointer;
+            background-color: #f9f9f9;
+        }
+
+        .option-list li:hover {
+            background-color: #f0f0f0;
+        }
+
+        .section-content {
+            padding: 0;
+        }
+
+        .section-content p {
+            color: #888;
+            margin-top: 0;
+            font-size: 14px;
+        }
+
+        .option-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .option-list li {
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border: 2px solid #ccc;
+            /* border-radius: 3px; */
+            outline: none;
+            cursor: pointer;
+            vertical-align: middle;
+            position: relative;
+        }
+
+        input[type="checkbox"]:hover {
+            border-color: #333;
+        }
+
+        input[type="checkbox"]:checked {
+            background-color: #333;
+        }
+
+        input[type="checkbox"]:checked::after {
+            content: '\2714';
+            font-size: 16px;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        .range-slider {
+            margin-top: 20px;
+        }
+
+        .section-content-2 {
+            display: flex;
+            flex-direction: row;
+            width: 350px;
+        }
+
+        .slider {
+            width: 200px;
+            -webkit-appearance: none;
+            height: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity .2s;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #0077be;
+            cursor: pointer;
+        }
+
+        .range-values {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        .current-value {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .apply-btn {
+            height: 30px;
+            display: block;
+            margin: 10px auto 0;
+            padding: 5px 15px;
+            background-color: #0c3c60;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .category-list ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .category-item {
+            padding: 8px 0;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .main-category {
+            font-weight: bold;
+        }
+
+        .category-item ul {
+            padding-left: 20px;
+        }
+
+        .selected {
+            background-color: #e6f3ff;
+            color: #0066cc;
+        }
+
+
+        /* .filter h2 {
+    margin-top: 0;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+} */
+
+        .filter p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .budget-options {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .budget-options li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .budget-options li:hover {
+            background-color: #f0f0f0;
+        }
+
+        .budget-options li span {
+            color: #999;
+        }
+
+        .icon-toggle {
+            cursor: pointer;
+        }
+
+        .icon-toggle span {
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        .icon-toggle .down-icon {
+            display: none;
+        }
+
+        .year-options {
+            display: block;
+        }
+
+        .ad {
+            flex-grow: 1;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .blue-ad {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .blue-ad button {
+            background-color: #fff;
+            color: #007bff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .blue-ad button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .offer-ad img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .load-more {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .load-more:hover {
+            background-color: #0056b3;
+        }
+
+        .icon-toggle-1 {
+            margin-top: -20px;
+            position: relative;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .love-icon-whist,
+        .share-icon {
+            padding: 10px;
+        }
+
+        .love-icon-whist i,
+        .share-icon i {
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .heart-icon {
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .heart-icon.selected {
+            color: red;
+            background: none;
+        }
+        @media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    aside {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .bike-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .bike-list {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .bike-item img {
+        height: 150px;
+    }
+
+    .bike-details {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .filter ul li {
+        font-size: 12px;
+    }
+
+    .bike-item img {
+        height: 120px;
+    }
+}
+
+@media (max-width: 450px) {
+    .filter h2 {
+        font-size: 14px;
+    }
+
+    .bike-item img {
+        height: 100px;
+    }
+}
+
+@media (max-width: 350px) {
+    .filter-header {
+        flex-direction: column;
+    }
+
+    .bike-item img {
+        height: 80px;
+    }
+}
+
+@media (max-width: 280px) {
+    .bike-item img {
+        height: 60px;
+    }
+
+    .bike-details h3 {
+        font-size: 14px;
+    }
+
+    .bike-details p {
+        font-size: 12px;
+    }
+
+    .range-selector input {
+        width: 40px;
+        font-size: 12px;
+    }
+}
+    </style>
+
+
+<div class="navbar-header">
+    <div class="navbar-container">
+        <div class="navbar-header-content">
+            <div class="navbar-logo">
+                <img style="width: 100px; margin-top: 8px;" src="./images/navbar/exxaa marketmdpi.png"
+                    alt=""><span></span>
+            </div>
+            <div class="navbar-location-bar">
+                <i class="fas fa-map-marker-alt navbar-location-icon"></i>
+                <select class="navbar-location-select">
+                    <option value="gulberg-phase-4">Gulberg Phase 4, Lahore</option>
+                    <option value="gulberg-phase-3">Gulberg Phase 3, Lahore</option>
+                    <option value="gulberg-phase-2">Gulberg Phase 2, Lahore</option>
+                    <option value="gulberg-phase-1">Gulberg Phase 1, Lahore</option>
+                </select>
+
+            </div>
+            <div class="navbar-search-container">
+                <div class="navbar-search-wrapper">
+                    <input type="text" class="navbar-search-input" placeholder="Search...">
+                    <i class="fas fa-search navbar-search-icon-inside"></i>
+                </div>
+            </div>
+
+
+            <div class="navbar-icons">
+                <div class="navbar-icon navbar-search-icon" onclick="toggleSearch()">
+                    <i class="fas fa-search"></i>
+                </div>
+
+                <br>
+                <div id="navbar-icon" class="navbar-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+
+                <div class="navbar-icon">
+                    <i class="fas fa-sign-in-alt"></i>
+                </div>
+                <div class="navbar-icon" onclick="toggleNotification()">
+                    <i class="fas fa-bell"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="navbar-mobile-search-container">
+    <input type="text" class="navbar-mobile-search-input" placeholder="Search...">
+</div>
+<script>
+    function toggleSearch() {
+        const mobileSearchContainer = document.querySelector('.navbar-mobile-search-container');
+        if (window.getComputedStyle(mobileSearchContainer).display === 'none') {
+            mobileSearchContainer.style.display = 'block';
+        } else {
+            mobileSearchContainer.style.display = 'none';
+        }
+    }
+</script>
+
+<!-- second navbar -->
+<nav class="secondary-nav">
+    <ul>
+        <li><span style="color: white;" class="all-categories">ALL CATEGORIES </span></li>
+        <li><a href="filterpage.html">Cars</a></li>
+        <li><a href="filterpage.html">Motorcycles</a></li>
+        <li><a href="filterpage.html">Mobile Phones</a></li>
+        <li><a href="filterpage.html">For Sale: Houses & Apartments</a></li>
+        <li><a href="filterpage.html">Scooters</a></li>
+        <li><a href="filterpage.html">Commercial & Other Vehicles</a></li>
+        <li><a href="filterpage.html">For Rent: Houses & Apartments</a></li>
+    </ul>
+</nav>
+
+<!-- second end navbar -->
+
+
+
+    <header>
+        <h1>Buy & Sell Used Bikes in Andaman & Nicobar Islands</h1>
+    </header>
+    <main>
+        <aside>
+            <div class="filter">
+                <div class="filter-header">
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">CATEGORIES</p>
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div class="category-list">
+                    <ul>
+                        <li class="category-item main-category">All Categories</li>
+                        <li class="category-item">
+                            <span>Bikes</span>
+                            <ul>
+                                <li class="category-item selected">Motorcycles (43)</li>
+                                <li class="category-item">Scooters (10)</li>
+                                <li class="category-item">Spare Parts (5)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="filter">
+                <div class="filter-header">
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">LOCATIONS</p>
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div class="category-list">
+                    <ul>
+                        <li class="category-item main-category">India</li>
+                        <li class="category-item">
+                            <span>Andaman & Nicobar Islands</span>
+                            <ul>
+                                <li class="category-item selected">Port Blair (28)</li>
+                                <li class="category-item">Prothrapur (7)</li>
+                                <li class="category-item">Kamorta (3)</li>
+                                <li class="category-item">Garacharma (2)</li>
+                                <li class="category-item">Bambooflat (1)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="filter">
+                <div class="filter-header">
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">BUDGET</p>
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div class="year-options">
+                    <p>Choose from options below</p>
+                    <ul class="budget-options">
+                        <li>Below 1 Lac <span>3 cars</span></li>
+                        <li>1 Lac - 2 Lac <span>7 cars</span></li>
+                        <li>2 Lac - 3 Lac <span>5 cars</span></li>
+                        <li>4 Lac - 5 Lac <span>9 cars</span></li>
+                        <li>5 Lac and Above <span>10+ cars</span></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="filter">
+
+
+                <div class="filter-header">
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">BRAND AND MODEL</p>
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div class="year-options">
+                    <p>Choose from options below</p>
+                    <input type="text" placeholder="Search brand or model">
+
+
+
+                    <div class="">
+
+
+                        <div class="sidebar">
+                            <h2>Popular Brands</h2>
+                            <div class="brand-grid">
+                                <div class="brand-item"><img src="./images/featured/suzki.png" alt="Maruti Suzuki"></div>
+                                <div class="brand-item"><img src="./images/featured/hudai.png" alt="Hyundai"></div>
+                                <div class="brand-item"><img src="./images/featured/mahindra.png" alt="Mahindra"></div>
+                                <div class="brand-item"><img src="./images/featured/toyato.png" alt="Toyota"></div>
+                                <div class="brand-item"><img src="./images/featured/tata.png" alt="Tata"></div>
+                                <div class="brand-item"><img src="./images/featured/honda.png" alt="Honda"></div>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div style="border-bottom: 1px solid #ddd; margin-top: 20px;"></div><br>
+
+                    <div class="filter">
+                        <h2>ALL BRANDS</h2>
+                        <ul>
+                            <li><input type="checkbox"> Bajaj (13)</li>
+                            <li><input type="checkbox"> Hero (5)</li>
+                            <li><input type="checkbox"> KTM (5)</li>
+                            <li><input type="checkbox"> TVS (5)</li>
+                            <li><input type="checkbox"> Hero Honda (4)</li>
+                            <li><input type="checkbox"> Royal Enfield (3)</li>
+                        </ul>
+                    </div>
+                    <div class="filter">
+                        <h2>ALL MODELS</h2>
+                        <ul>
+                            <li><input type="checkbox"> Bajaj Dominar 400 (2)</li>
+                            <li><input type="checkbox"> Bajaj Pulsar 150 (2)</li>
+                            <li><input type="checkbox"> Bajaj Pulsar N 160 (2)</li>
+                            <li><input type="checkbox"> Bajaj Xcd (2)</li>
+                            <li><input type="checkbox"> KTM 200 Duke (2)</li>
+                            <li><input type="checkbox"> Suzuki Gixxer SF (2)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter">
+
+                <div class="filter-header">
+
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">KM DRIVEN</p>
+
+
+
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div class="year-options">
+                    <p>Choose from options below</p>
+                    <ul class="budget-options">
+                        <li>Under 3 Years <span>3 cars</span></li>
+                        <li>Under 4 Years <span>7 cars</span></li>
+                        <li>Under 7 Years <span>5 cars</span></li>
+                        <li>Under 3 Years <span>9 cars</span></li>
+                        <li>7 Years and Above <span>10+ cars</span></li>
+                    </ul>
+                    <p>Choose a range below (km)</p>
+
+
+                </div>
+            </div>
+            <div class="filter">
+                <div class="filter-header">
+
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">Year</p>
+
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div class="year-options">
+                    <p>Choose from options below</p>
+                    <ul class="budget-options">
+                        <li>Under 3 Years <span>3 cars</span></li>
+                        <li>Under 4 Years <span>7 cars</span></li>
+                        <li>Under 7 Years <span>5 cars</span></li>
+                        <li>Under 3 Years <span>9 cars</span></li>
+                        <li>7 Years and Above <span>10+ cars</span></li>
+                    </ul>
+                    <p>Choose a range below</p>
+                    <div class="range-selector">
+                        <input type="number" placeholder="2004" min="1900" max="2024">
+                        <span>to</span>
+                        <input type="number" placeholder="2024" min="1900" max="2024">
+                        <button>Apply</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="filter">
+                <h2>NO. OF OWNERS</h2>
+                <ul>
+                    <li><input type="checkbox"> 1st Owner (10)</li>
+                    <li><input type="checkbox"> 2nd Owner (15)</li>
+                    <li><input type="checkbox"> 3rd Owner (8)</li>
+                    <li><input type="checkbox"> 4th Owner and above (5)</li>
+                </ul>
+            </div>
+            <div class="filter">
+                <h2>INSPECTION STATUS</h2>
+                <ul>
+                    <li><input type="checkbox"> Inspected (20)</li>
+                    <li><input type="checkbox"> Not Inspected (18)</li>
+                </ul>
+            </div>
+            <div class="filter">
+                <div class="filter-header">
+
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">Fuel</p>
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <ul>
+                    <li><input type="checkbox"> Petrol (35)</li>
+                    <li><input type="checkbox"> Diesel (5)</li>
+                    <li><input type="checkbox"> Electric (3)</li>
+                </ul>
+            </div>
+            <div class="filter">
+
+                <div class="filter-header">
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">TRANSMISSION</p>
+
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div class="year-options">
+                    <p>Choose from options below</p>
+                    <ul class="budget-options">
+                        <li>Automatic <span>3 cars</span></li>
+                        <li>Manuel<span>10+ cars</span></li>
+
+                    </ul>
+
+
+                </div>
+            </div>
+
+            <div class="filter">
+                <div class="filter-header">
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">TYPE</p>
+
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div class="section-content-1">
+                    <p>Choose from below options</p>
+                    <ul class="option-list-1">
+                        <li>
+                            <input type="checkbox" id="furnished">
+                            <label for="furnished">Houses & Villas(1)</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="unfurnished">
+                            <label for="unfurnished">Apartments</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="semi-furnished">
+                            <label for="semi-furnished">Builder Floors</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="semi-furnished">
+                            <label for="semi-furnished">Farm Houses</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filter">
+                <div class="filter-header">
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">BEDROOMS</p>
+
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p>Choose from below options</p>
+                    <ul class="option-list">
+                        <li>1+ bedroom</li>
+                        <li>2+ bedrooms</li>
+                        <li>3+ bedrooms</li>
+                        <li>4+ bedrooms</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filter">
+                <div class="filter-header">
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">BATHROOMS</p>
+
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p>Choose from below options</p>
+                    <ul class="option-list">
+                        <li>1+ bathroom</li>
+                        <li>2+ bathrooms</li>
+                        <li>3+ bathrooms</li>
+                        <li>4+ bathrooms</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filter">
+                <div class="filter-header">
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">FURNISHING</p>
+
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div class="section-content-1">
+                    <p>Choose from below options</p>
+                    <ul class="option-list-1">
+                        <li>
+                            <input type="checkbox" id="furnished">
+                            <label for="furnished">Furnished (1)</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="unfurnished">
+                            <label for="unfurnished">Unfurnished</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="semi-furnished">
+                            <label for="semi-furnished">Semi-Furnished (2)</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filter">
+                <div class="filter-header">
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">CONSTRUCTION STATUS</p>
+
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div class="section-content-1">
+                    <p>Choose from below options</p>
+                    <ul class="option-list-1">
+                        <li>
+                            <input type="checkbox" id="furnished">
+                            <label for="furnished">Under Construction</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="unfurnished">
+                            <label for="unfurnished">Ready to Move (1)</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="semi-furnished">
+                            <label for="semi-furnished">New Launch</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filter">
+                <div class="filter-header">
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">LISTED BY</p>
+
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div class="section-content-1">
+                    <p>Choose from below options</p>
+                    <ul class="option-list-1">
+                        <li>
+                            <input type="checkbox" id="furnished">
+                            <label for="furnished">Owner(1)</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="unfurnished">
+                            <label for="unfurnished">Dealer</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="semi-furnished">
+                            <label for="semi-furnished">Builder</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filter">
+                <div class="filter-header">
+                    <p style="color: black; font-size: 1.0rem; font-weight: 600;">SUPER BUILTUP AREA (FT²)</p>
+
+                    <div class="icon-toggle" onclick="toggleFilter(this)">
+                        <span class="up-icon"><i class="fas fa-chevron-up"></i></span>
+                        <span class="down-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+                <div class="sidebar-section">
+                    <p>Choose a range below (Sq Ft)</p>
+                    <div class="section-content-2">
+                        <div class="range-slider">
+                            <input type="range" min="0" max="6200" value="3100" class="slider" id="areaRange">
+                            <div class="range-values">
+                                <span id="minValue">0</span>
+                                <span id="maxValue">6,200</span>
+                            </div>
+                        </div>
+                        <!-- <div class="current-value">
+                            <span id="currentValue">3,100</span> Sq Ft
+                        </div> -->
+                        <button class="apply-btn">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <section class="content">
+            <div class="bike-list">
+                <!-- Bike Items Will Go Here -->
+                <div class="bike-item">
+                    <img src="./images/featured/2149287461.jpg" alt="Bike Image">
+                    <a style="text-decoration: none;" href="ownerdetails.html">
+                        <div class="bike-details">
+                            <h3>₹ 45,000</h3>
+                            <p>2012 - 45000 km</p>
+                            <p>Yamaha 110 bike for Sale</p>
+                            <p>Junlukhart, Port Blair</p>
+                            <p class="date">Today</p>
+                        </div>
+                    </a>
+                    <button class="favorite">
+                        <div class="icon-toggle-1">
+                            <br>
+                            <span style="padding: 10px; display: inline;" class="love-icon-whist">
+                                <i class="fas fa-heart heart-icon"></i>
+                            </span>
+                            <span style="padding: 10px; display: inline;" class="share-icon">
+                                <i class="fas fa-share"></i>
+                            </span>
+                        </div>
+                    </button>
+
+                </div>
+                <!-- Repeat similar blocks for other bike items -->
+                <div class="bike-item">
+                    <img src="./images/featured/car4.jpg" alt="Bike Image">
+                    <div class="bike-details">
+                        <h3>₹ 85,000</h3>
+                        <p>2022 - 13300 km</p>
+                        <p>Single not that much used bike</p>
+                        <p>Andaman, Andaman & Nicobar Islands</p>
+                        <p class="date">Yesterday</p>
+                    </div>
+                    <button class="favorite">
+                        <div class="icon-toggle-1">
+                            <br>
+                            <span style="padding: 10px; display: inline;" class="love-icon-whist">
+                                <i class="fas fa-heart heart-icon"></i>
+                            </span>
+                            <span style="padding: 10px; display: inline;" class="share-icon">
+                                <i class="fas fa-share"></i>
+                            </span>
+                        </div>
+                    </button>
+                </div>
+                <div class="bike-item">
+                    <img src="./images/featured/97324.jpg" alt="Bike Image">
+                    <div class="bike-details">
+                        <h3>₹ 85,000</h3>
+                        <p>2022 - 13300 km</p>
+                        <p>Single not that much used bike</p>
+                        <p>Andaman, Andaman & Nicobar Islands</p>
+                        <p class="date">Yesterday</p>
+                    </div>
+                    <button class="favorite">
+                        <div class="icon-toggle-1">
+                            <br>
+                            <span style="padding: 10px; display: inline;" class="love-icon-whist">
+                                <i class="fas fa-heart heart-icon"></i>
+                            </span>
+                            <span style="padding: 10px; display: inline;" class="share-icon">
+                                <i class="fas fa-share"></i>
+                            </span>
+                        </div>
+                    </button>
+                </div>
+                <div class="bike-item">
+                    <img src="./images/featured/unveiling-layers-exploring-webshop-development-with-distinct-components-pure-white-backgro.png" alt="Bike Image">
+                    <div class="bike-details">
+                        <h3>₹ 85,000</h3>
+                        <p>2022 - 13300 km</p>
+                        <p>Single not that much used bike</p>
+                        <p>Andaman, Andaman & Nicobar Islands</p>
+                        <p class="date">Yesterday</p>
+                    </div>
+                    <button class="favorite">
+                        <div class="icon-toggle-1">
+                            <br>
+                            <span style="padding: 10px; display: inline;" class="love-icon-whist">
+                                <i class="fas fa-heart heart-icon"></i>
+                            </span>
+                            <span style="padding: 10px; display: inline;" class="share-icon">
+                                <i class="fas fa-share"></i>
+                            </span>
+                        </div>
+                    </button>
+                </div>
+                <div class="bike-item">
+                    <img src="./images/featured/car3.jpg" alt="Bike Image">
+                    <div class="bike-details">
+                        <h3>₹ 85,000</h3>
+                        <p>2022 - 13300 km</p>
+                        <p>Single not that much used bike</p>
+                        <p>Andaman, Andaman & Nicobar Islands</p>
+                        <p class="date">Yesterday</p>
+                    </div>
+                    <button class="favorite">
+                        <div class="icon-toggle-1">
+                            <br>
+                            <span style="padding: 10px; display: inline;" class="love-icon-whist">
+                                <i class="fas fa-heart heart-icon"></i>
+                            </span>
+                            <span style="padding: 10px; display: inline;" class="share-icon">
+                                <i class="fas fa-share"></i>
+                            </span>
+                        </div>
+                    </button>
+                </div>    <div class="bike-item">
+                    <img src="./images/featured/car2.jpg" alt="Bike Image">
+                    <div class="bike-details">
+                        <h3>₹ 85,000</h3>
+                        <p>2022 - 13300 km</p>
+                        <p>Single not that much used bike</p>
+                        <p>Andaman, Andaman & Nicobar Islands</p>
+                        <p class="date">Yesterday</p>
+                    </div>
+                    <button class="favorite">
+                        <div class="icon-toggle-1">
+                            <br>
+                            <span style="padding: 10px; display: inline;" class="love-icon-whist">
+                                <i class="fas fa-heart heart-icon"></i>
+                            </span>
+                            <span style="padding: 10px; display: inline;" class="share-icon">
+                                <i class="fas fa-share"></i>
+                            </span>
+                        </div>
+                    </button>
+                </div>
+                <div class="bike-item">
+                    <img src="./images/featured/car1.jpg" alt="Bike Image">
+                    <div class="bike-details">
+                        <h3>₹ 85,000</h3>
+                        <p>2022 - 13300 km</p>
+                        <p>Single not that much used bike</p>
+                        <p>Andaman, Andaman & Nicobar Islands</p>
+                        <p class="date">Yesterday</p>
+                    </div>
+                    <button class="favorite">
+                        <div class="icon-toggle-1">
+                            <br>
+                            <span style="padding: 10px; display: inline;" class="love-icon-whist">
+                                <i class="fas fa-heart heart-icon"></i>
+                            </span>
+                            <span style="padding: 10px; display: inline;" class="share-icon">
+                                <i class="fas fa-share"></i>
+                            </span>
+                        </div>
+                    </button>
+                </div>
+                <div class="bike-item">
+                    <img src="./images/featured/97324.jpg" alt="Bike Image">
+                    <div class="bike-details">
+                        <h3>₹ 85,000</h3>
+                        <p>2022 - 13300 km</p>
+                        <p>Single not that much used bike</p>
+                        <p>Andaman, Andaman & Nicobar Islands</p>
+                        <p class="date">Yesterday</p>
+                    </div>
+                    <button class="favorite">
+                        <div class="icon-toggle-1">
+                            <br>
+                            <span style="padding: 10px; display: inline;" class="love-icon-whist">
+                                <i class="fas fa-heart heart-icon"></i>
+                            </span>
+                            <span style="padding: 10px; display: inline;" class="share-icon">
+                                <i class="fas fa-share"></i>
+                            </span>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="bike-item">
+                    <img src="./images/featured/3242.jpg" alt="Bike Image">
+                    <div class="bike-details">
+                        <h3>₹ 85,000</h3>
+                        <p>2022 - 13300 km</p>
+                        <p>Single not that much used bike</p>
+                        <p>Andaman, Andaman & Nicobar Islands</p>
+                        <p class="date">Yesterday</p>
+                    </div>
+                    <button class="favorite">
+                        <div class="icon-toggle-1">
+                            <br>
+                            <span style="padding: 10px; display: inline;" class="love-icon-whist">
+                                <i class="fas fa-heart heart-icon"></i>
+                            </span>
+                            <span style="padding: 10px; display: inline;" class="share-icon">
+                                <i class="fas fa-share"></i>
+                            </span>
+                        </div>
+                    </button>
+                </div>
+                <div class="bike-item">
+                    <img src="./images/featured/2420.jpg" alt="Bike Image">
+                    <div class="bike-details">
+                        <h3>₹ 85,000</h3>
+                        <p>2022 - 13300 km</p>
+                        <p>Single not that much used bike</p>
+                        <p>Andaman, Andaman & Nicobar Islands</p>
+                        <p class="date">Yesterday</p>
+                    </div>
+                    <button class="favorite">
+                        <div class="icon-toggle-1">
+                            <br>
+                            <span style="padding: 10px; display: inline;" class="love-icon-whist">
+                                <i class="fas fa-heart heart-icon"></i>
+                            </span>
+                            <span style="padding: 10px; display: inline;" class="share-icon">
+                                <i class="fas fa-share"></i>
+                            </span>
+                        </div>
+                    </button>
+                </div>
+                <div class="bike-item">
+                    <img src="./images/featured/2148189616.jpg" alt="Bike Image">
+                    <div class="bike-details">
+                        <h3>₹ 85,000</h3>
+                        <p>2022 - 13300 km</p>
+                        <p>Single not that much used bike</p>
+                        <p>Andaman, Andaman & Nicobar Islands</p>
+                        <p class="date">Yesterday</p>
+                    </div>
+                    <button class="favorite">
+                        <div class="icon-toggle-1">
+                            <br>
+                            <span style="padding: 10px; display: inline;" class="love-icon-whist">
+                                <i class="fas fa-heart heart-icon"></i>
+                            </span>
+                            <span style="padding: 10px; display: inline;" class="share-icon">
+                                <i class="fas fa-share"></i>
+                            </span>
+                        </div>
+                    </button>
+                </div>
+                <!-- More bike items... -->
+            </div>
+            <div class="ad-section">
+                <div class="ad blue-ad">
+                    <h2>Want to see your stuff here?</h2>
+                    <p style="color: white;">Make some extra cash by selling things in your community. Go on, it's quick and easy.</p>
+                  <a href="sellpage.html"><button>Start selling</button></a>  
+                </div>
+                <!-- <div class="ad offer-ad">
+                    <img src="./images/featured/offer.png" alt="Offer Image">
+                    <p>Offer Valid till 22nd July</p>
+                    <button>Book Now</button>
+                </div> -->
+            </div>
+            <button class="load-more">Load more</button>
+        </section>
+    </main>
+
+
+    <!-- footer start -->
+
+    <nav class="footmob-navbar">
+        <a href="#" class="footmob-nav-item active">
+            <i class="fas fa-home"></i>
+            HOME
+        </a>
+        <a href="chatpage.html" class="footmob-nav-item">
+            <i class="fas fa-comment"></i>
+            CHATS
+        </a>
+        <div class="footmob-sell-button">
+            <div class="footmob-sell-button-inner">
+                <a href="sellpage.html">
+                    <i class="fas fa-plus"></i>
+                </a>
+            </div>
+
+        </div>
+        <a href="myads.html" class="footmob-nav-item">
+            <i class="far fa-heart"></i>
+            MY ADS
+        </a>
+        <a href="editprofile.html" class="footmob-nav-item">
+            <i class="far fa-user"></i>
+            ACCOUNT
+        </a>
+    </nav>
+    <script>
+        document.querySelectorAll('.footmob-nav-item').forEach(item => {
+            item.addEventListener('click', function () {
+                document.querySelectorAll('.footmob-nav-item').forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+   <!-- footer start -->
+
+
+
+    <script>
+        function toggleFilter(element) {
+            const filterHeader = element.closest('.filter-header');
+            const filterContent = filterHeader.nextElementSibling;
+            const upIcon = filterHeader.querySelector('.up-icon');
+            const downIcon = filterHeader.querySelector('.down-icon');
+
+            // Toggle content visibility
+            if (filterContent.style.display === 'none' || filterContent.style.display === '') {
+                filterContent.style.display = 'block';
+                upIcon.style.display = 'inline';
+                downIcon.style.display = 'none';
+            } else {
+                filterContent.style.display = 'none';
+                upIcon.style.display = 'none';
+                downIcon.style.display = 'inline';
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const heartIcons = document.querySelectorAll('.heart-icon');
+
+            heartIcons.forEach(function (icon) {
+                icon.addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent any default action
+                    this.classList.toggle('selected');
+                });
+            });
+        });
+    </script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const bikeItems = document.querySelectorAll('.bike-item');
+    const loadMoreButton = document.querySelector('.load-more');
+    let visibleItems = 6;
+
+    // Initially show only the first 6 items
+    const showItems = () => {
+        bikeItems.forEach((item, index) => {
+            if (index < visibleItems) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    };
+
+    loadMoreButton.addEventListener('click', () => {
+        visibleItems += 6;
+        showItems();
+    });
+
+    // Initial call to display the items
+    showItems();
+});
+
+</script>
+
+
+</body>
+
+</html>

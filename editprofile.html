@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./images/navbar/exxaa marketmdpi.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+      .main-editcontainer{
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            margin-top: 30px;
+            
+            width: 80%;
+            height: 100%;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .sidebar {
+            flex: 1;
+            border-right: 1px solid #e0e0e0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #ffffff;
+            border: 1px solid #002f34;
+            border-radius: 4px;
+            color: #002f34;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .sidebar button:hover {
+            background-color: #f2f2f2;
+        }
+        .content {
+            flex: 2;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .content h2 button {
+            padding: 8px 12px;
+            background-color: #ffffff;
+            border: 1px solid #002f34;
+            border-radius: 4px;
+            color: #002f34;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .content h2 button:hover {
+            background-color: #f2f2f2;
+        }
+        .content label {
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+        }
+        .content input[type="text"],
+        .content textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .content .info-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .content .info-box p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .content .info-box i {
+            font-size: 18px;
+            color: #002f34;
+        }
+        .content .buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .content .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .content .buttons .discard {
+            background-color: #ffffff;
+            border: 1px solid #002f34;
+            color: #002f34;
+        }
+        .content .buttons .save {
+            background-color: #002f34;
+            color: #ffffff;
+        }
+        .content .divider {
+            border-top: 1px solid #e0e0e0;
+            margin: 20px 0;
+        }
+        .profile-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .sidebar {
+        flex: none;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 15px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .content h2 {
+        font-size: 20px;
+    }
+
+    .content h2 button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .content .buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .content .buttons button {
+        width: 100%;
+        margin-top: 5px;
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .sidebar button,
+    .content h2 button {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+
+    .content label,
+    .content .info-box p {
+        font-size: 12px;
+    }
+
+    .content input[type="text"],
+    .content textarea {
+        padding: 8px;
+    }
+
+    .content .info-box i {
+        font-size: 16px;
+    }
+
+    .profile-avatar {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 320px) {
+    .content h2 {
+        font-size: 18px;
+    }
+
+    .content .buttons button {
+        padding: 5px 8px;
+        font-size: 10px;
+    }
+
+    .sidebar button {
+        font-size: 10px;
+        padding: 4px 6px;
+    }
+}
+    </style>
+</head>
+<body>
+<!-- navbar section  start -->
+<div class="navbar-header">
+    <div class="navbar-container">
+        <div class="navbar-header-content">
+            <div class="navbar-logo">
+                <img style="width: 100px; margin-top: 8px;" src="./images/navbar/exxaa marketmdpi.png" alt=""><span></span>
+            </div>
+            <div class="navbar-location-bar">
+                <i class="fas fa-map-marker-alt navbar-location-icon"></i>
+                <select class="navbar-location-select">
+                    <option value="gulberg-phase-4">Gulberg Phase 4, Lahore</option>
+                    <option value="gulberg-phase-3">Gulberg Phase 3, Lahore</option>
+                    <option value="gulberg-phase-2">Gulberg Phase 2, Lahore</option>
+                    <option value="gulberg-phase-1">Gulberg Phase 1, Lahore</option>
+                </select>
+    
+            </div>
+            <div class="navbar-search-container">
+                <div class="navbar-search-wrapper">
+                    <input type="text" class="navbar-search-input" placeholder="Search...">
+                    <i class="fas fa-search navbar-search-icon-inside"></i>
+                </div>
+            </div>
+            
+         
+            <div class="navbar-icons">
+                <div class="navbar-icon navbar-search-icon" onclick="toggleSearch()">
+                    <i class="fas fa-search"></i>
+                </div>
+
+                <br>
+                <div id="navbar-icon" class="navbar-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                
+                <div class="navbar-icon">
+                    <i class="fas fa-sign-in-alt"></i> 
+                              </div>
+                <div class="navbar-icon">
+                    
+                    <i class="fas fa-bell"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+</div>
+<div class="navbar-mobile-search-container">
+    <input type="text" class="navbar-mobile-search-input" placeholder="Search...">
+</div>
+<script>
+    function toggleSearch() {
+        const mobileSearchContainer = document.querySelector('.navbar-mobile-search-container');
+        if (window.getComputedStyle(mobileSearchContainer).display === 'none') {
+            mobileSearchContainer.style.display = 'block';
+        } else {
+            mobileSearchContainer.style.display = 'none';
+        }
+    }
+</script>
+
+<!-- navbar section end  -->
+    <!-- second navbar -->
+    <nav class="secondary-nav">
+        <ul>
+            <li><span style="color: white;" class="all-categories">ALL CATEGORIES </span></li>
+            <li><a href="demo.html">Cars</a></li>
+            <li><a href="#">Motorcycles</a></li>
+            <li><a href="#">Mobile Phones</a></li>
+            <li><a href="#">For Sale: Houses & Apartments</a></li>
+            <li><a href="#">Scooters</a></li>
+            <li><a href="#">Commercial & Other Vehicles</a></li>
+            <li><a href="#">For Rent: Houses & Apartments</a></li>
+        </ul>
+    </nav>
+
+    <!-- second end navbar -->
+
+    <div class="main-editcontainer">
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile-avatar">
+                <img src="./images/featured/feedbackimg02.png" alt="Profile Image">
+               
+            </div>
+            <h3>Edit Your Profile</h3>
+
+          <a style="text-decoration: none;" href="profile.html"> <button>View profile</button></a>  
+        </div>
+        <div class="content">
+            <h2>Edit Profile <button>View profile</button></h2>
+            <label for="name">Basic information</label>
+            <input type="text" id="name" value="Muhammad rashid">
+            <textarea id="about" rows="4" placeholder="About me (optional)"></textarea>
+            <div class="info-box">
+                <p>Why is it important?</p>
+                <i class="fas fa-question-circle"></i>
+            </div>
+            <div class="divider"></div>
+            <label for="phone">Contact information</label>
+            <input type="text" id="phone" value="+91 8592949654">
+            <p>Yay! Your number is verified.</p>
+            <input type="text" id="email" value="muhammadrashid62051@gmail.com">
+            <p>Your email is never shared with external parties nor do we use it to spam you in any way.</p>
+            <div class="divider"></div>
+            <label for="additional-info">Additional information</label>
+            <input type="text" id="additional-info" value="Google">
+            <p>Link your Google account to seamlessly use your contact list.</p>
+            <div class="buttons">
+                <button class="discard">Discard</button>
+                <button class="save">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+<!-- footer start -->
+
+<nav class="footmob-navbar">
+    <a href="#" class="footmob-nav-item active">
+        <i class="fas fa-home"></i>
+        HOME
+    </a>
+    <a href="#" class="footmob-nav-item">
+        <i class="fas fa-comment"></i>
+        CHATS
+    </a>
+    <div class="footmob-sell-button">
+        <div class="footmob-sell-button-inner">
+            <i class="fas fa-plus"></i>
+          
+        </div>
+      
+    </div>
+    <a href="#" class="footmob-nav-item">
+        <i class="far fa-heart"></i>
+        MY ADS
+    </a>
+    <a href="#" class="footmob-nav-item">
+        <i class="far fa-user"></i>
+        ACCOUNT
+    </a>
+</nav>
+<script>
+    document.querySelectorAll('.footmob-nav-item').forEach(item => {
+        item.addEventListener('click', function() {
+            document.querySelectorAll('.footmob-nav-item').forEach(nav => nav.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+</script>
+
+<!-- footer end section -->
+
+</body>
+</html>

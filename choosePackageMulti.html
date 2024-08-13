@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="./images/navbar/exxaa marketmdpi.png" type="image/png">
+    <title> Exxaa Ad Posting Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .ad-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            font-size: 48px;
+            color: #ffd700;
+        }
+
+        h2 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .option {
+            margin-bottom: 10px;
+        }
+
+        .option input[type="radio"] {
+            display: none;
+        }
+
+        .option label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .option label:hover {
+            background-color: #f9f9f9;
+        }
+
+        .option input[type="radio"]:checked + label {
+            background-color: #e6f3ff;
+            border-color: #0077ff;
+        }
+
+        .option-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .description {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #0077ff;
+        }
+
+        .business-packages {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f0f7ff;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .view-packages {
+            background-color: transparent;
+            color: #0077ff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #0077ff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #0066dd;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bussines-pkg-nav" class="navbar">
+        <a href="index.html" class="toggle-nav"><i class="fas fa-arrow-left"></i></a>
+    </div>
+
+    <div class="ad-form">
+        <div class="header">
+            <div class="icon">&#9888;</div>
+            <h2>YOUR AD WAS NOT POSTED</h2>
+            <p>You have already posted 1 free ad in last 90 days for Cars</p>
+        </div>
+        
+        <h3>WHAT TO DO NEXT?</h3>
+        
+        <form id="adForm">
+            <div class="option">
+                <input type="radio" id="premium30" name="adType" value="3776" checked>
+                <label for="premium30">
+                    <div class="option-content">
+                        <span class="title">1 Premium Ad with 30 days Featured</span>
+                        <span class="description">10X more replies than Basic Ad</span>
+                    </div>
+                    <span class="price">₹ 3,776</span>
+                </label>
+            </div>
+
+            <div class="option">
+                <input type="radio" id="premium7" name="adType" value="2706">
+                <label for="premium7">
+                    <div class="option-content">
+                        <span class="title">1 Premium Ad with 7 days Featured</span>
+                        <span class="description">5X more replies than Basic Ad</span>
+                    </div>
+                    <span class="price">₹ 2,706</span>
+                </label>
+            </div>
+
+            <div class="option">
+                <input type="radio" id="powerListing" name="adType" value="2006">
+                <label for="powerListing">
+                    <div class="option-content">
+                        <span class="title">1 Ad Power Listing (7 Days Refresh)</span>
+                        <span class="description">Reach up to 4 times more buyers</span>
+                    </div>
+                    <span class="price">₹ 2,006</span>
+                </label>
+            </div>
+
+            <div class="option">
+                <input type="radio" id="anotherAd" name="adType" value="1416">
+                <label for="anotherAd">
+                    <div class="option-content">
+                        <span class="title">Post Another Ad</span>
+                        <span class="description">Reach up to 2 times more buyers</span>
+                    </div>
+                    <span class="price">₹ 1,416</span>
+                </label>
+            </div>
+
+            <div class="option">
+                <input type="radio" id="wait" name="adType" value="0">
+                <label for="wait">
+                    <span class="title">Wait for next 90 days to post this Ad</span>
+                </label>
+            </div>
+        </form>
+
+        <div class="business-packages">
+            <span>Heavy discount on Business Packages</span>
+         <a href="choosePackageMultiLIMITS.html">   <button class="view-packages">VIEW PACKAGES</button></a>
+        </div>
+        <a style="text-decoration: none;" href="congrats.html"><button type="button" id="submitBtn" class="submit-btn">Pay ₹ 3,776</button>
+        </a> 
+       <!-- <button type="button" id="submitBtn" class="submit-btn">Pay ₹ 3,776</button> -->
+    </div>
+
+    <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const submitBtn = document.getElementById('submitBtn');
+            const adForm = document.getElementById('adForm');
+            const viewPackagesBtn = document.getElementById('viewPackagesBtn');
+
+            adForm.addEventListener('change', function(event) {
+                if (event.target.name === 'adType') {
+                    const selectedPrice = event.target.value;
+                    if (selectedPrice === "0") {
+                        submitBtn.textContent = 'Preview Ad';
+                        submitBtn.style.backgroundColor = '#99909'; 
+                        submitBtn.style.cursor = 'default'; 
+                        viewPackagesBtn.classList.remove('view-packages');
+                        viewPackagesBtn.classList.add('view-packages-blue');
+                    } else {
+                        submitBtn.textContent = `Pay ₹ ${selectedPrice}`;
+                        submitBtn.style.backgroundColor = '#0077ff'; // Reset background color
+                        submitBtn.style.cursor = 'pointer'; // Reset cursor
+                        viewPackagesBtn.classList.remove('view-packages-blue');
+                        viewPackagesBtn.classList.add('view-packages');
+                    }
+                }
+            });
+
+            viewPackagesBtn.addEventListener('click', function(event) {
+                if (submitBtn.style.cursor === 'default') {
+                    event.preventDefault(); // Prevent navigation if no payment required
+                }
+            });
+        });
+    </script>
+</body>
+</html>

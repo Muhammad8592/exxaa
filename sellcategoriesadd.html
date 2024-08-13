@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="./images/navbar/exxaa marketmdpi.png" type="image/png">
+    <title> Exxaa Post Your Ad</title>
+    <style>
+      
+      body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f4f4f9;
+        }
+        .add-sell-catg-h1, .add-sell-catg-h2 {
+            font-weight: normal;
+            color: #000000;
+        }
+        .add-sell-catg-form-section {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+        .add-sell-catg-form-form-group {
+            margin-bottom: 15px;
+        }
+        .add-sell-catg-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .add-sell-catg-input,
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        .add-sell-catg-input:hover,
+        input[type="number"]:hover,
+        select:hover,
+        textarea:hover {
+            border-color: #0066cc;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn-group button {
+            padding: 10px 15px;
+            background-color: #fff;
+            border: 1px solid #0066cc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn-group button:hover {
+            background-color: #0066cc;
+            color: #fff;
+        }
+        .photo-upload {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .photo-upload .upload-box {
+            aspect-ratio: 1;
+            border: 2px dashed #0066cc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .photo-upload .upload-box:hover {
+            background-color: #e6f0ff;
+            border-color: #004c99;
+        }
+        .photo-upload .upload-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        .photo-upload .upload-box input[type="file"] {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .submit-btn {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #004c99;
+        }
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .profile-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #0066cc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+        .char-count {
+            text-align: right;
+            color: #666;
+            font-size: 12px;
+        }
+        .location-toggle {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .toggle-btn {
+            flex: 1;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #0066cc;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .toggle-btn:hover {
+            background-color: #0066cc;
+            color: white;
+        }
+        .toggle-btn.active {
+            background-color: #0066cc;
+            color: white;
+        }
+        .location-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .location-label {
+            color: #666;
+        }
+        .location-value {
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .profile-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .photo-upload {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn-group {
+                flex-direction: column;
+            }
+            .photo-upload {
+                grid-template-columns: 1fr;
+            }
+            .add-sell-catg-h1, .add-sell-catg-h2 {
+                font-size: 1.5em;
+            }
+        }
+   
+    </style>
+</head>
+<body>
+
+    <div class="navbar-header">
+        <div class="navbar-container">
+            <div class="navbar-header-content">
+                <div class="navbar-logo">
+                    <img style="width: 100px; margin-top: 8px;" src="./images/navbar/exxaa marketmdpi.png"
+                        alt=""><span></span>
+                </div>
+                <div class="navbar-location-bar">
+                    <i class="fas fa-map-marker-alt navbar-location-icon"></i>
+                    <select class="navbar-location-select">
+                        <option value="gulberg-phase-4">Gulberg Phase 4, Lahore</option>
+                        <option value="gulberg-phase-3">Gulberg Phase 3, Lahore</option>
+                        <option value="gulberg-phase-2">Gulberg Phase 2, Lahore</option>
+                        <option value="gulberg-phase-1">Gulberg Phase 1, Lahore</option>
+                    </select>
+
+                </div>
+                <div class="navbar-search-container">
+                    <div class="navbar-search-wrapper">
+                        <input type="text" class="navbar-search-input" placeholder="Search...">
+                        <i class="fas fa-search navbar-search-icon-inside"></i>
+                    </div>
+                </div>
+
+
+                <div class="navbar-icons">
+                    <div class="navbar-icon navbar-search-icon" onclick="toggleSearch()">
+                        <i class="fas fa-search"></i>
+                    </div>
+
+                    <br>
+                    <div id="navbar-icon" class="navbar-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div  id="register-icon" class="navbar-icon">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </div>
+                    <div class="navbar-icon" onclick="toggleNotification()">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-mobile-search-container">
+        <input type="text" class="navbar-mobile-search-input" placeholder="Search...">
+    </div>
+    <script>
+        function toggleSearch() {
+            const mobileSearchContainer = document.querySelector('.navbar-mobile-search-container');
+            if (window.getComputedStyle(mobileSearchContainer).display === 'none') {
+                mobileSearchContainer.style.display = 'block';
+            } else {
+                mobileSearchContainer.style.display = 'none';
+            }
+        }
+    </script>
+
+    <!-- second navbar -->
+    <!-- <nav class="secondary-nav">
+        <ul>
+            <li><span style="color: white;" class="all-categories">ALL CATEGORIES </span></li>
+            <li><a href="filterpage.html">Cars</a></li>
+            <li><a href="filterpage.html">Motorcycles</a></li>
+            <li><a href="filterpage.html">Mobile Phones</a></li>
+            <li><a href="filterpage.html">For Sale: Houses & Apartments</a></li>
+            <li><a href="filterpage.html">Scooters</a></li>
+            <li><a href="filterpage.html">Commercial & Other Vehicles</a></li>
+            <li><a href="filterpage.html">For Rent: Houses & Apartments</a></li>
+        </ul>
+    </nav> -->
+
+    <!-- second end navbar -->
+
+
+
+
+    <div id="bussines-pkg-nav" class="navbar">
+        <a href="index.html" class="toggle-nav"><i class="fas fa-arrow-left"></i></a>
+    </div>
+
+    <form id="post-ad">
+        <h1 class="add-sell-catg-h1">POST YOUR AD</h1>
+
+        <div class="add-sell-catg-form-section">
+            <h2 class="add-sell-catg-h2">SELECTED CATEGORY</h2>
+            <p>Cars / Cars <a href="#">Change</a></p>
+        </div>
+
+        <div class="add-sell-catg-form-section">
+            <h2 class="add-sell-catg-h2">INCLUDE SOME DETAILS</h2>
+            <div class="add-sell-catg-form-form-group">
+                <label for="brand" class="add-sell-catg-label">Brand *</label>
+                <select id="brand" class="add-sell-catg-input" required>
+                    <option value="">Select brand</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Mahindra">Mahindra</option>
+                    <option value="Hyundai">Hyundai</option>
+                    <option value="Ford">Ford</option>
+                </select>
+            </div>
+
+            <div class="add-sell-catg-form-form-group">
+                <label for="year" class="add-sell-catg-label">Year *</label>
+                <input type="number" id="year" class="add-sell-catg-input" required>
+            </div>
+
+            <div class="add-sell-catg-form-form-group">
+                <label class="add-sell-catg-label">Fuel *</label>
+                <div class="btn-group">
+                    <button type="button">CNG & Hybrids</button>
+                    <button type="button">Diesel</button>
+                    <button type="button">Electric</button>
+                    <button type="button">LPG</button>
+                    <button type="button">Petrol</button>
+                </div>
+            </div>
+
+            <div class="add-sell-catg-form-form-group">
+                <label class="add-sell-catg-label">Transmission *</label>
+                <div class="btn-group">
+                    <button type="button">Automatic</button>
+                    <button type="button">Manual</button>
+                </div>
+            </div>
+
+            <div class="add-sell-catg-form-form-group">
+                <label for="km-driven" class="add-sell-catg-label">KM driven *</label>
+                <input type="number" id="km-driven" class="add-sell-catg-input" required>
+                <div class="char-count">0 / 6</div>
+            </div>
+
+            <div class="add-sell-catg-form-form-group">
+                <label class="add-sell-catg-label">No. of Owners *</label>
+                <div class="btn-group">
+                    <button type="button">1st</button>
+                    <button type="button">2nd</button>
+                    <button type="button">3rd</button>
+                    <button type="button">4th</button>
+                    <button type="button">4+</button>
+                </div>
+            </div>
+
+      
+
+            <div class="add-sell-catg-form-form-group">
+                <label for="ad-title" class="add-sell-catg-label">Ad title *</label>
+                <input type="text" id="ad-title" class="add-sell-catg-input" maxlength="70" required>
+                <div class="char-count" id="ad-title-char-count">0 / 70</div>
+                <small>Mention the key features of your item (e.g. brand, model, age, type)</small>
+            </div>
+
+     
+            <div class="add-sell-catg-form-form-group">
+                <label for="description" class="add-sell-catg-label">Description *</label>
+                <textarea id="description" class="add-sell-catg-input" rows="4" maxlength="4096" required></textarea>
+                <div class="char-count" id="description-char-count">0 / 4096</div>
+                <small>Include condition, features, and reason for selling</small>
+            </div>
+            
+        </div>
+
+        <div class="add-sell-catg-form-section">
+            <h2 class="add-sell-catg-h2">SET A PRICE</h2>
+            <div class="add-sell-catg-form-form-group">
+                <label for="price" class="add-sell-catg-label">Price *</label>
+                <input type="number" id="price" class="add-sell-catg-input" required>
+            </div>
+        </div>
+
+        <div class="add-sell-catg-form-section">
+            <h2 class="add-sell-catg-h2">UPLOAD UP TO 20 PHOTOS</h2>
+            <div class="photo-upload" id="photo-upload">
+                <div class="upload-box">
+                    <input style="object-fit: cover;" type="file" accept="image/*" onchange="previewImage(this)">
+                    <span >Add Photo</span>
+                </div>
+            </div>
+            <small>This field is mandatory</small>
+        </div>
+
+        <div class="add-sell-catg-form-section">
+            <h2 class="add-sell-catg-h2">CONFIRM YOUR LOCATION</h2>
+            <div class="location-toggle">
+                <button type="button" class="toggle-btn" onclick="toggleLocationView('list')">LIST</button>
+                <button type="button" class="toggle-btn active" onclick="toggleLocationView('current')">CURRENT LOCATION</button>
+            </div>
+            <div id="location-list" style="display: none;">
+                <div class="add-sell-catg-form-form-group">
+                    <label for="state" class="add-sell-catg-label">State *</label>
+                    <select id="state" class="add-sell-catg-input" required>
+                        <option value="">Select state</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Tamil">Tamil</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Karnataka">Karnataka</option>
+                    </select>
+                </div>
+            </div>
+            <div id="current-location">
+                <div class="location-item">
+                    <span class="location-label">State</span>
+                    <span class="location-value">Kerala</span>
+                </div>
+                <div class="location-item">
+                    <span class="location-label">City</span>
+                    <span class="location-value">Kochi</span>
+                </div>
+                <div class="location-item">
+                    <span class="location-label">Neighbourhood</span>
+                    <span class="location-value">Ambattukavu</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-sell-catg-form-section">
+            <h2 class="add-sell-catg-h2">REVIEW YOUR DETAILS</h2>
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img style="width: 60px; height: 60px; object-fit: cover;" src="./images/featured/2149287461.jpg" alt="">
+                </div>
+                <div class="add-sell-catg-form-form-group" style="flex-grow: 1;">
+                    <label for="name" class="add-sell-catg-label">Name</label>
+                    <input type="text" id="name" class="add-sell-catg-input" value="Amritha s" required>
+                    <div class="char-count">9 / 30</div>
+                </div>
+            </div>
+            <div>
+                <p>Your phone number</p>
+                <p>+919778084975</p>
+            </div>
+        </div>
+
+       <a href="choosePackageMulti.html" type="submit" style="text-decoration: none;" class="submit-btn"> Post now</a> 
+    </form>
+
+
+    <!-- title start script -->
+    <script>
+        const adTitleInput = document.getElementById('ad-title');
+        const adTitleCharCount = document.getElementById('ad-title-char-count');
+
+        adTitleInput.addEventListener('input', () => {
+            const currentLength = adTitleInput.value.length;
+            adTitleCharCount.textContent = `${currentLength} / 70`;
+        });
+    </script>
+  <!-- title end script -->
+<!-- description start script -->
+<script>
+const descriptionTextarea = document.getElementById('description');
+const descriptionCharCount = document.getElementById('description-char-count');
+
+descriptionTextarea.addEventListener('input', () => {
+    const currentLength = descriptionTextarea.value.length;
+    descriptionCharCount.textContent = `${currentLength} / 4096`;
+});
+</script>
+<!-- description end script -->
+
+
+
+    <script>
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var img = document.createElement('img');
+                    img.src = e.target.result;
+                    var uploadBox = input.parentNode;
+                    uploadBox.innerHTML = '';
+                    uploadBox.appendChild(img);
+                    uploadBox.appendChild(input);
+                    if (document.querySelectorAll('.photo-upload .upload-box').length < 20) {
+                        addNewUploadBox();
+                    }
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function addNewUploadBox() {
+            var photoUpload = document.getElementById('photo-upload');
+            var newUploadBox = document.createElement('div');
+            newUploadBox.classList.add('upload-box');
+            newUploadBox.innerHTML = '<input type="file" accept="image/*" onchange="previewImage(this)"><span>+</span>';
+            photoUpload.appendChild(newUploadBox);
+        }
+
+        // Add character count functionality
+        document.querySelectorAll('input[type="text"], input[type="number"], textarea').forEach(el => {
+            el.addEventListener('input', function() {
+                let charCount = this.parentNode.querySelector('.char-count');
+                if (charCount) {
+                    charCount.textContent = `${this.value.length} / ${this.maxLength || charCount.textContent.split('/')[1].trim()}`;
+                }
+            });
+        });
+
+        function toggleLocationView(view) {
+            const listView = document.getElementById('location-list');
+            const currentView = document.getElementById('current-location');
+            const listBtn = document.querySelector('.toggle-btn:first-child');
+            const currentBtn = document.querySelector('.toggle-btn:last-child');
+
+            if (view === 'list') {
+                listView.style.display = 'block';
+                currentView.style.display = 'none';
+                listBtn.classList.add('active');
+                currentBtn.classList.remove('active');
+            } else {
+                listView.style.display = 'none';
+                currentView.style.display = 'block';
+                listBtn.classList.remove('active');
+                currentBtn.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
